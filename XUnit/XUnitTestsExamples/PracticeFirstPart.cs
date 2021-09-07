@@ -10,21 +10,21 @@ namespace XUnitProject
 
 		//Boolean
 		[Fact]
-		public void test1()
+		public void HRFullNameContainsName()
 		{
 			HumanResources person1 = new("Harry", "Grajeda");
 			Assert.True(person1.Name.Equals("Harry"));
 		}
 		//String
 		[Fact]
-		public void test2()
+		public void validateFullNameHR()
 		{
 			HumanResources person1 = new("Harry", "Grajeda");
 			Assert.Equal("Harry Grajeda", person1.FullName);
 		}
 
 		[Fact]
-		public void test3()
+		public void validateHRnameStartsFirst2Characters()
 		{
 			HumanResources person1 = new("Harry", "Grajeda");
 			Assert.StartsWith("Ha", person1.Name);
@@ -32,7 +32,7 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test4()
+		public void validateHRnameEndsFirst2Characters()
 		{
 			HumanResources person1 = new("Harry", "Grajeda");
 			Assert.EndsWith("ry", person1.Name);
@@ -40,21 +40,21 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test5()
+		public void ignoreCaseValidateHRLastName()
 		{
 			HumanResources person2 = new("HARRY", "grajeda");
 			Assert.Equal("GRAJEDA", person2.LastName, ignoreCase: true);
 		}
 
 		[Fact]
-		public void test6()
+		public void regularExpressionValidateFullName()
 		{
 			HumanResources person3 = new("harry", "GRAJEDA");
 			Assert.Matches("[a-z]+ [A-Z]+", person3.FullName);
 		}
 
 		[Fact]
-		public void test7()
+		public void HRLastNameEmpty()
 		{
 			HumanResources person4 = new("Harry", "");
 			Assert.Empty(person4.LastName);
@@ -62,7 +62,7 @@ namespace XUnitProject
 
 		//Numbers
 		[Fact]
-		public void test8()
+		public void validateExpectResultRest()
 		{
 			Addition addition = new();
 			Rest rest = new();
@@ -70,7 +70,7 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test9()
+		public void changeRandomNumberMethod()
 		{
 			Addition addition = new();
 			Rest rest = new();
@@ -78,14 +78,14 @@ namespace XUnitProject
 		}
 		//Double
 		[Fact]
-		public void test10()
+		public void validateResultRestTwoDouble ()
 		{
 			Rest rest = new();
 			Assert.Equal(3.412, rest.RestDouble(8.813, 5.401));
 		}
 		//Collection
 		[Fact]
-		public void test11()
+		public void hrListEqualWorkersList()
 		{
 			Company company = new();
 			HumanResources enginer1 = new("Harry", "Grajeda");
@@ -113,7 +113,7 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test12()
+		public void HRmemberExistWorkersList()
 		{
 		
 			Company company = new();
@@ -143,7 +143,7 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test13()
+		public void workersListNotContainHRMember()
 		{
 			
 			Company company = new();
@@ -174,7 +174,7 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test14()
+		public void workersListContainsHRmemberLastName()
 		{
 			
 			Company company = new();
@@ -205,7 +205,7 @@ namespace XUnitProject
 		}
 
 		[Fact]
-		public void test15()
+		public void salariesUpdated()
 		{
 			
 			Company company = new();
