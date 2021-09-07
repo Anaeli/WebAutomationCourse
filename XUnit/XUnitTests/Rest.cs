@@ -9,6 +9,6 @@ public class Rest
 
 		public double RestDouble(double a, double b)
         {
-			return Math.Round(a-b,4);
+			return Math.Round(a-b,3);
         }
 }

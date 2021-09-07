@@ -67,7 +67,6 @@ namespace XUnitProject
 			Addition addition = new();
 			Rest rest = new();
 			Assert.Equal(20, rest.RestInt(30, 10));
-			Assert.True(addition.RandomNumber() is >= 600 and <= 700, $"Random Number {addition.RandomNumber()}");
 		}
 
 		[Fact]
@@ -82,7 +81,7 @@ namespace XUnitProject
 		public void test10()
 		{
 			Rest rest = new();
-			Assert.Equal(3.4121, rest.RestDouble(8.8135, 5.4014));
+			Assert.Equal(3.412, rest.RestDouble(8.813, 5.401));
 		}
 		//Collection
 		[Fact]
