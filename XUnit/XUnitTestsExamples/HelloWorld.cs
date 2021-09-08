@@ -60,7 +60,7 @@ namespace XUnitTestsExamples
                 manager1,
                 manager2,
                 enginer1,
-                enginer2,
+                enginer2
             };
 
             Assert.Equal(workersList, company.Workers);

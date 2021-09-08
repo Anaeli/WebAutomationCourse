@@ -12,7 +12,7 @@ namespace XUnitTests
         public int RandomNumber()
         {
             var rnd = new Random();
-            return rnd.Next(1, 101);
+            return rnd.Next(600, 700);
             //return rnd.Next(101, 200);
         }
 
