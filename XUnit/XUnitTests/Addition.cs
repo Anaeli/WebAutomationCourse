@@ -11,9 +11,8 @@ namespace XUnitTests
 
         public int RandomNumber()
         {
-            var rnd = new Random();
-            return rnd.Next(1, 101);
-            //return rnd.Next(101, 200);
+            var rnd = new Random();                        
+            return rnd.Next(600, 700);
         }
 
         public double AddDouble(double num1, double num2)
