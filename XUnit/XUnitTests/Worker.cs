@@ -17,6 +17,7 @@ namespace XUnitProject
         public int EntryHour { get; set; }
         public int ExitHour { get; set; }
         public int WorkHour { get; set; }
+        public Guid ID { get; } = Guid.NewGuid();
 
         public event EventHandler<EventArgs> WorkHours;
 

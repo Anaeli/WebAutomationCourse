@@ -1,20 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 using XUnitProject;
 using XUnitTests;
 
 namespace XUnitTestsExamples
 {
-    public class PracticeFirstPart
+    public class PracticeFirstPart : IDisposable
     {
-        [Fact]
+        private readonly ITestOutputHelper output;
+
+        public PracticeFirstPart(ITestOutputHelper output)
+        {
+            this.output = output;
+            this.output.WriteLine("Init execution...");
+        }
+
+        [Fact(DisplayName = "HRBooleans")]
+        [Trait("Category", "Booleans")]
         public void HRBooleanTests()
         {
             HumanResource myHR = new("Lizel", "Garcia");
             Assert.True(myHR.FullName.Contains("Lizel"), $"HR Full Name is: {myHR.FullName}");
         }
 
-        [Fact]
+        [Fact(DisplayName = "HRStrings")]
+        [Trait("Category", "Strings")]
         public void HRStringTests()
         {
             HumanResource myHR = new("Lizel", "Garcia");
@@ -29,35 +41,33 @@ namespace XUnitTestsExamples
             Assert.Matches("[a-z]+ [A-Z]", myThirdHR.FullName);
         }
 
-        [Fact]
+        [Fact(DisplayName = "HRNumerics")]
+        [Trait("Category", "Numerics")]
         public void HRNumericTests()
         {
+            this.output.WriteLine("Starting Substraction integer tests..");
             Rest substraction = new();
             Assert.Equal(58, substraction.substractIntegerNumbers(100, 42));
             Addition addition = new();
             int randomNumber = addition.RandomNumber();
             Assert.True(randomNumber is >= 600 and <= 700, $"Random Value was: {randomNumber}");
+            this.output.WriteLine("Substraction integer tests are complete.");
         }
 
-        [Fact]
+        [Fact(DisplayName = "HRDoubles")]
+        [Trait("Category", "Doubles")]
         public void HRDoubleTests()
         {
+            this.output.WriteLine("Starting Substraction double tests..");
             Rest substraction = new();
             Assert.Equal(58.2474, substraction.substractDoubleNumbers(100.25350, 42.00610), 3);
+            this.output.WriteLine("Substraction double tests are complete.");
         }
 
-        [Fact]
+        [Fact(DisplayName = "HRCollections")]
+        [Trait("Category", "Collections")]
         public void HRCollectionTests()
         {
-            /*
-              - Create a collection with HR members (hrList), add HR members to company "workers" list.
-              - Test to validate that "hrList" is equal to "workers" list.
-              - Test to validate that a HR member exist in "workers" list.
-              - Test to validate that  "workers" list does not contain a HR member.
-              - Test to validate if  "workers" list contains a HR member according its LastName.
-             -  Set the salary of all members of "workers" list, and create a test case to validate that all salaries have been updated (worker.Salary is not empty).
-            */
-
             List<HumanResource> hrList = new();
             HumanResource hr1 = new("Lizel", "Garcia");
             HumanResource hr2 = new("Georgina", "Valverde");
@@ -78,6 +88,59 @@ namespace XUnitTestsExamples
             Assert.Contains(company.Workers, worker => worker.LastName.Contains("Garcia"));
             foreach (HumanResource hr in hrList) {hr.Salary = "50.25"; }
             Assert.All(company.Workers, worker => Assert.False(string.IsNullOrEmpty(worker.Salary)));
+        }
+
+        [Fact(DisplayName = "HRObjectTypes")]
+        [Trait("Category", "Objects")]
+        public void HRObjectTypeTests()
+        {
+            HumanResource hr1 = new("Lizel", "Garcia");
+            Assert.IsType<HumanResource>(hr1);
+            Assert.IsNotType<Manager>(hr1);
+            Assert.IsAssignableFrom<Worker>(hr1);
+
+            HumanResource hr2 = new("Georgina", "Valverde");
+            Assert.NotSame(hr1, hr2);
+
+            HumanResource hr3 = null;
+            Assert.Throws<NullReferenceException>(() => hr3.humanResourceExists(hr3));
+            this.output.WriteLine("Using NullReferenceException");
+
+            HumanResource hr4 = new(null, null);
+            Assert.Throws<ArgumentNullException>(() => hr4.humanResourceExists());
+            this.output.WriteLine("Using ArgumentNullException");
+        }
+
+        [Theory]
+        [InlineData(100, 42, 58)]
+        [InlineData(100, 50, 50)]
+        public void substractNumbersInlineTests(int a, int b, int expected)
+        {
+            Rest substraction = new();
+            int result = substraction.substractIntegerNumbers(a, b);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory, MemberData(nameof(Data))]
+        public void substractNumbersMemberDataTests(int a, int b, int expected)
+        {
+            Rest substraction = new();
+            int result = substraction.substractIntegerNumbers(a, b);
+            Assert.Equal(expected, result);
+        }
+        
+        public static IEnumerable<object[]> Data =>
+            new List<object[]>
+            {
+                new object[] { 2, 1, 1},
+                new object[] { 4, 2, 2},
+                new object[] { 8, 2, 6}
+            };
+
+
+        public void Dispose()
+        {
+            output.WriteLine("Cleaning code ...");
         }
     }
 }

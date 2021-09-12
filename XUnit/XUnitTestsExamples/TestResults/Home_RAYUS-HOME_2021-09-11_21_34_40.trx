@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="3c61726c-843b-4875-b3b3-cb1ea49bb6e0" name="Home@RAYUS-HOME 2021-09-11 21:34:40" runUser="RAYUS-HOME\Home" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2021-09-11T21:34:40.5248296-04:00" queuing="2021-09-11T21:34:40.5248306-04:00" start="2021-09-11T21:34:39.3332300-04:00" finish="2021-09-11T21:34:40.5322722-04:00" />
+  <TestSettings name="default" id="3eae6a3e-bb86-42dd-b0f8-1afd57c1b204">
+    <Deployment runDeploymentRoot="Home_RAYUS-HOME_2021-09-11_21_34_40" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="b2c02dec-60ea-406e-a821-cac68d296c5a" testId="bcea6cb0-47fc-ffc3-ffc5-0aa16a5cc07a" testName="HRCollections" computerName="RAYUS-HOME" duration="00:00:00.0112606" startTime="2021-09-11T21:34:40.3672119-04:00" endTime="2021-09-11T21:34:40.3672826-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b2c02dec-60ea-406e-a821-cac68d296c5a">
+      <Output>
+        <StdOut>Init execution...&#xD;
+Cleaning code ...</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="HRCollections" storage="f:\jalasoft\courses\web automation\webautomationcourse\xunit\xunittestsexamples\bin\debug\net5.0\xunittestsexamples.dll" id="bcea6cb0-47fc-ffc3-ffc5-0aa16a5cc07a">
+      <Execution id="b2c02dec-60ea-406e-a821-cac68d296c5a" />
+      <TestMethod codeBase="F:\Jalasoft\Courses\Web Automation\WebAutomationCourse\XUnit\XUnitTestsExamples\bin\Debug\net5.0\XUnitTestsExamples.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XUnitTestsExamples.PracticeFirstPart" name="HRCollectionTests" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="bcea6cb0-47fc-ffc3-ffc5-0aa16a5cc07a" executionId="b2c02dec-60ea-406e-a821-cac68d296c5a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.3+1b45f5407b (64-bit .NET 5.0.9)&#xD;
+[xUnit.net 00:00:00.35]   Discovering: XUnitTestsExamples&#xD;
+[xUnit.net 00:00:00.39]   Discovered:  XUnitTestsExamples&#xD;
+[xUnit.net 00:00:00.39]   Starting:    XUnitTestsExamples&#xD;
+[xUnit.net 00:00:00.46]   Finished:    XUnitTestsExamples&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
