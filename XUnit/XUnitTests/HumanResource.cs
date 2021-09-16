@@ -7,7 +7,16 @@ namespace XUnitTests
     {
 
         public HumanResource(string name, string lastname) : base(name, lastname) 
-        { }
+        {
+        }
+
+        public void isAHRValid()
+        {
+            if (Name is null && LastName is null)
+            {
+                throw new ArgumentNullException();
+            }
+        }
 
         protected override void CalculateHours(EventArgs e)
         {
