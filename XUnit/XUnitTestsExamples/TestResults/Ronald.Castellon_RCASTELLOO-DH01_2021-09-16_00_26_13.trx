@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="3a761fbf-9c50-47a3-925f-3b511ad6ae69" name="Ronald.Castellon@RCASTELLOO-DH01 2021-09-16 00:26:13" runUser="JALASOFT\Ronald.Castellon" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2021-09-16T00:26:13.1690836-04:00" queuing="2021-09-16T00:26:13.1690846-04:00" start="2021-09-16T00:26:11.8981297-04:00" finish="2021-09-16T00:26:13.1770906-04:00" />
+  <TestSettings name="default" id="fdb13999-f1d8-4545-8b17-fde29e9d401b">
+    <Deployment runDeploymentRoot="Ronald.Castellon_RCASTELLOO-DH01_2021-09-16_00_26_13" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="ca368cf0-5bde-4c51-a2a8-058fec8a1d4c" testId="38f6738b-f299-fe78-d82e-6ebefb9a2953" testName="XUnitProject.PracticeFirstPart.HRValidations" computerName="RCASTELLOO-DH01" duration="00:00:00.0017872" startTime="2021-09-16T00:26:12.9863881-04:00" endTime="2021-09-16T00:26:12.9863886-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca368cf0-5bde-4c51-a2a8-058fec8a1d4c">
+      <Output>
+        <StdOut>Starting execution...&#xD;
+The result 7 - 5 is 2</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5b2c4f99-53e6-44eb-8da0-5fd51e446bf6" testId="bdc94a08-5087-623f-5beb-328c83d5a1fe" testName="XUnitProject.PracticeFirstPart.DoubleValidations" computerName="RCASTELLOO-DH01" duration="00:00:00.0019654" startTime="2021-09-16T00:26:12.9865012-04:00" endTime="2021-09-16T00:26:12.9865015-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5b2c4f99-53e6-44eb-8da0-5fd51e446bf6">
+      <Output>
+        <StdOut>Starting execution...&#xD;
+The result of 12.9876, 7.1234 is 5.864</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="06f376b0-0f29-43bd-b520-19c96d121f48" testId="d0d7fd63-cbac-61b6-a92d-fdcd9094f655" testName="XUnitProject.PracticeFirstPart.NumbersValidation" computerName="RCASTELLOO-DH01" duration="00:00:00.0060468" startTime="2021-09-16T00:26:12.9816654-04:00" endTime="2021-09-16T00:26:12.9817392-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06f376b0-0f29-43bd-b520-19c96d121f48">
+      <Output>
+        <StdOut>Starting execution...&#xD;
+The result 7 - 5 is 2</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="424da6b7-ba7f-4396-82db-08bbc77b8952" testId="7345b76e-00ea-b644-abd5-9afad358c986" testName="XUnitProject.PracticeFirstPart.CollectionsValidation" computerName="RCASTELLOO-DH01" duration="00:00:00.0081619" startTime="2021-09-16T00:26:12.9930337-04:00" endTime="2021-09-16T00:26:12.9930352-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="424da6b7-ba7f-4396-82db-08bbc77b8952">
+      <Output>
+        <StdOut>Starting execution...&#xD;
+The result 7 - 5 is 2</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="XUnitProject.PracticeFirstPart.HRValidations" storage="c:\users\ronald.castellon\documents\webautomationcourse\xunit\xunittestsexamples\bin\debug\net5.0\xunittestsexamples.dll" id="38f6738b-f299-fe78-d82e-6ebefb9a2953">
+      <Execution id="ca368cf0-5bde-4c51-a2a8-058fec8a1d4c" />
+      <TestMethod codeBase="C:\Users\ronald.castellon\Documents\WebAutomationCourse\XUnit\XUnitTestsExamples\bin\Debug\net5.0\XUnitTestsExamples.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XUnitProject.PracticeFirstPart" name="HRValidations" />
+    </UnitTest>
+    <UnitTest name="XUnitProject.PracticeFirstPart.NumbersValidation" storage="c:\users\ronald.castellon\documents\webautomationcourse\xunit\xunittestsexamples\bin\debug\net5.0\xunittestsexamples.dll" id="d0d7fd63-cbac-61b6-a92d-fdcd9094f655">
+      <Execution id="06f376b0-0f29-43bd-b520-19c96d121f48" />
+      <TestMethod codeBase="C:\Users\ronald.castellon\Documents\WebAutomationCourse\XUnit\XUnitTestsExamples\bin\Debug\net5.0\XUnitTestsExamples.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XUnitProject.PracticeFirstPart" name="NumbersValidation" />
+    </UnitTest>
+    <UnitTest name="XUnitProject.PracticeFirstPart.CollectionsValidation" storage="c:\users\ronald.castellon\documents\webautomationcourse\xunit\xunittestsexamples\bin\debug\net5.0\xunittestsexamples.dll" id="7345b76e-00ea-b644-abd5-9afad358c986">
+      <Execution id="424da6b7-ba7f-4396-82db-08bbc77b8952" />
+      <TestMethod codeBase="C:\Users\ronald.castellon\Documents\WebAutomationCourse\XUnit\XUnitTestsExamples\bin\Debug\net5.0\XUnitTestsExamples.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XUnitProject.PracticeFirstPart" name="CollectionsValidation" />
+    </UnitTest>
+    <UnitTest name="XUnitProject.PracticeFirstPart.DoubleValidations" storage="c:\users\ronald.castellon\documents\webautomationcourse\xunit\xunittestsexamples\bin\debug\net5.0\xunittestsexamples.dll" id="bdc94a08-5087-623f-5beb-328c83d5a1fe">
+      <Execution id="5b2c4f99-53e6-44eb-8da0-5fd51e446bf6" />
+      <TestMethod codeBase="C:\Users\ronald.castellon\Documents\WebAutomationCourse\XUnit\XUnitTestsExamples\bin\Debug\net5.0\XUnitTestsExamples.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XUnitProject.PracticeFirstPart" name="DoubleValidations" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="38f6738b-f299-fe78-d82e-6ebefb9a2953" executionId="ca368cf0-5bde-4c51-a2a8-058fec8a1d4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bdc94a08-5087-623f-5beb-328c83d5a1fe" executionId="5b2c4f99-53e6-44eb-8da0-5fd51e446bf6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0d7fd63-cbac-61b6-a92d-fdcd9094f655" executionId="06f376b0-0f29-43bd-b520-19c96d121f48" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7345b76e-00ea-b644-abd5-9afad358c986" executionId="424da6b7-ba7f-4396-82db-08bbc77b8952" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="4" executed="4" passed="4" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.3+1b45f5407b (64-bit .NET 5.0.9)&#xD;
+[xUnit.net 00:00:00.37]   Discovering: XUnitTestsExamples&#xD;
+[xUnit.net 00:00:00.42]   Discovered:  XUnitTestsExamples&#xD;
+[xUnit.net 00:00:00.42]   Starting:    XUnitTestsExamples&#xD;
+[xUnit.net 00:00:00.51]   Finished:    XUnitTestsExamples&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

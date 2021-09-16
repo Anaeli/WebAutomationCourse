@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 using XUnitTests;
 
 namespace XUnitProject
 {
     public class PracticeFirstPart
     {
-        public PracticeFirstPart()
+        private readonly ITestOutputHelper output;
+
+        public PracticeFirstPart(ITestOutputHelper output)
         {
+            this.output = output;
+            this.output.WriteLine("Starting execution...");
         }
 
         [Fact]
+        [Trait("Category", "Global")]
+        [Trait("Category", "Validations")]
         public void HRValidations()
         {
             var HR_Officer1 = new HumanResource("Alan", "Garcia");
@@ -39,10 +46,13 @@ namespace XUnitProject
 
             // Use Assert.Empty to validate that HR lastName is empty
             Assert.Empty(HR_Officer4.LastName);
-
+            this.output.WriteLine($"The result 7 - 5 is 2");
         }
 
         [Fact]
+        [Trait("Category", "Global")]
+        [Trait("Category", "Operations")]
+        [Trait("Operations", "Int")]
         public void NumbersValidation()
         {
             // Test to validate that expected result of a rest is correct
@@ -53,18 +63,26 @@ namespace XUnitProject
             var rnd = new Addition();
             var value = rnd.RandomNumber();
             Assert.True(value > 599 && value < 701, $"The value {value} was not in range");
+            this.output.WriteLine($"The result 7 - 5 is 2");
 
         }
 
         [Fact]
+        [Trait("Category", "Global")]
+        [Trait("Category", "Operations")]
+        [Trait("Operations", "Int")]
         public void DoubleValidations()
         {
             // Test to validate that the result of a rest of two double number is correct, use 3 as floating precision number. Note: the decimal part of the result number should have at least 4 digits
             var operation = new Rest();
             Assert.Equal(5.864, operation.RestNumbers(12.9876, 7.1234), 3);
+            this.output.WriteLine($"The result of 12.9876, 7.1234 is 5.864");
         }
 
         [Fact]
+        [Trait("Category", "Global")]
+        [Trait("Category", "Collections")]
+        [Trait("Category", "Validations")]
         public void CollectionsValidation()
         {
             // Create a collection with HR members (hrlist), add HR members to company "Workers" list.
@@ -104,6 +122,21 @@ namespace XUnitProject
             HR_Officer4.Salary = "3500";
 
             Assert.All(company.Workers, Worker => Assert.False(string.IsNullOrEmpty(Worker.Salary)));
+            this.output.WriteLine($"The result 7 - 5 is 2");
+        }
+
+        [Fact]
+        [Trait("Category", "Global")]
+        [Trait("Category", "Validations")]
+        public void TypeValidation()
+        {
+            var HR_Officer3 = new HumanResource("ALBERTO", "badu");
+            var HR_Officer4 = new HumanResource("Armando", "Barrera");
+
+            Assert.IsType<HumanResource>(HR_Officer3);
+            Assert.IsNotType<Manager>(HR_Officer3);
+            Assert.IsAssignableFrom<Worker>(HR_Officer3);
+            Assert.NotSame(HR_Officer3, HR_Officer4);
 
         }
     }
