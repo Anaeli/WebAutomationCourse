@@ -1,21 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 using XUnitProject;
+using XUnitTests;
 using XUnitTests;
 
 namespace XUnitTestsExamples
 {
-    public class PracticeFirstPart
+    public class PracticeFirstPart : IDisposable
     {
-        [Fact]
-        public void Booleans()
+        private readonly ITestOutputHelper output;
+        public PracticeFirstPart(ITestOutputHelper output)
         {
-            HumanResource hr = new("Johnny", "Nitro", "3000");
-            // Test to validate that HR FullName contains its name
-            Assert.True(hr.Name.Equals("Johnny"), $"HR representant's name: {hr.Name}");
+            this.output = output;
+            this.output.WriteLine("Init execution...");
         }
 
         [Fact]
+        [Trait("HR", "Booleans")]
+        public void Booleans()
+        {
+            this.output.WriteLine("Start HR name test");
+            HumanResource hr = new("Johnny", "Nitro", "3000");
+            Assert.True(hr.Name.Equals("Johnny"), $"HR representant's name: {hr.Name}"); // Test to validate that HR FullName contains its name
+        }
+
+        [Fact]
+        [Trait("HR", "Strings")]
         public void Strings()
         {
             HumanResource hr = new("Johnny", "Quest", "3000");
@@ -30,16 +42,18 @@ namespace XUnitTestsExamples
         }
 
         [Fact]
+        [Trait("Numbers", "Math")]
         public void Numbers()
         {
-            Rest rest = new();
+            //Rest rest = new();
             Addition addition = new();
-            Assert.Equal(5, rest.SubstractInt(10, 5)); // Test to validate that expect result of a rest is correct.
+            Assert.Equal(5, Rest.SubstractInt(10, 5)); // Test to validate that expect result of a rest is correct.
             Assert.True(addition.RandomNumber() is >= 600 and <= 700, $"Random Number {addition.RandomNumber()}"); // Change RandomNumber method in Addition class to return numbers between 600 - 700 and write validation for this change.
-            Assert.Equal(10.8888, rest.SubstractDouble(10.9999, 0.1111), 3); // Test to validate that the result of a rest of two double number is correct, use 3 as floating precision number. Note: the decimal part of result number should have at least 4 numbers.
+            Assert.Equal(10.8888, Rest.SubstractDouble(10.9999, 0.1111), 3); // Test to validate that the result of a rest of two double number is correct, use 3 as floating precision number. Note: the decimal part of result number should have at least 4 numbers.
         }
 
         [Fact]
+        [Trait("HR", "Collections")]
         public void CollectionsValidations()
         {
             Company company = new();
@@ -71,6 +85,33 @@ namespace XUnitTestsExamples
             Assert.DoesNotContain(hr4, company.Workers); // Test to validate that "workers" list does not contain a HR member.
             Assert.Contains(workersList, worker => worker.LastName.Contains("Bozzo")); // Test to validate if "workers" list contains a HR member according its LastName.
             Assert.All(company.Workers, worker => Assert.False(string.IsNullOrWhiteSpace(worker.Salary))); // Set the salary of all members of "workers" list, and create a test case to validate that all salaries have been updated (worker.Salary is not empty).
+        }
+
+        [Fact]
+        [Trait("HR", "Instances")]
+        public void Instances()
+        {
+            //Rest rest = new();
+            HumanResource hr = new("Laura", "Bozzo", "3400");
+            HumanResource hr2 = new("Cristina", "Saralegui", "3900");
+            Assert.IsType<HumanResource>(hr);
+            Assert.IsNotType<Manager>(hr);
+            Assert.IsAssignableFrom<Worker>(hr);
+            Assert.NotSame(hr, hr2);
+        }
+
+        [Fact]
+        [Trait("HR", "Exceptions")]
+        public void Exceptions()
+        {
+            HumanResource hr3 = new(null, "Saralegui", null);
+            //hr3.Name = "21";
+            Assert.Throws<ArgumentNullException>(() => hr3.GetName());
+        }
+
+            public void Dispose()
+        {
+            this.output.WriteLine("Subtraction results is:" + Rest.SubstractInt(8,2));
         }
     }
 }
