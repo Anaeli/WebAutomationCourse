@@ -12,5 +12,17 @@ namespace XUnitProject
         {
 
         }
+        public HumanResources HRIsNull(HumanResources hr)
+        {
+            if (hr is null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                return hr;
+            }
+        }
     }
+   
 }

@@ -20,6 +20,8 @@ namespace XUnitProject
 
         public event EventHandler<EventArgs> WorkHours;
 
+        public Guid ID { get; } = Guid.NewGuid();
+
         public void WorkedHours()
         {
             var workHours = CalculateWorkHours(EntryHour, ExitHour);
