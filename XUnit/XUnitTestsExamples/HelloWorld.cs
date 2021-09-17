@@ -17,7 +17,7 @@ namespace XUnitTestsExamples
             Assert.Contains("la Be", manager.FullName);
             Assert.StartsWith("Z", manager.Name);
             Assert.EndsWith("Benavidez", manager.FullName);
-            Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+", manager.FullName);
+            Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]", manager.FullName);
         }
 
         [Fact]

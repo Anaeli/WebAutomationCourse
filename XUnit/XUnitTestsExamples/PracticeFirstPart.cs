@@ -4,16 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 using XUnitProject;
 using XUnitTests;
 
 namespace XUnitTestsExamples
 {
-    public class PracticeFirstPart
+    public class PracticeFirstPart : IDisposable
     {
-        [Fact]
+        private readonly ITestOutputHelper output;
+
+        public PracticeFirstPart(ITestOutputHelper output)
+        {
+            this.output = output;
+            this.output.WriteLine("Init execution...");
+        }
+
+        [Fact(DisplayName = "String Test")]
+        [Trait("Category", "String")]
         public void BooleanTest()
         {
+            this.output.WriteLine("String Test");
+
             HumanResource hr = new("Juanito", "Nieves");
             Assert.Contains(hr.Name, hr.FullName);
             Assert.StartsWith("Ju", hr.Name);
@@ -30,26 +42,48 @@ namespace XUnitTestsExamples
             Assert.Empty(hr4.LastName);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Number Test Int")]
+        [Trait("Category", "Operations")]
+        [Trait("Operations", "Int")]
         public void NumbersTest()
         {
+            this.output.WriteLine("Number Test Int");
+
             Rest rest = new();
-            Assert.Equal(40, rest.RestInt(50, 10));
+            int a = 50;
+            int b = 10;
+
+            Assert.Equal(40, rest.RestInt(a, b));
 
             Addition addition = new();
             Assert.InRange<int>(addition.RandomNumber(), 600, 700);
+
+            this.output.WriteLine($"Substraction of two numbers (int): {rest.RestInt(a, b)}");
         }
 
-        [Fact]
+        [Fact(DisplayName = "Number Test Double")]
+        [Trait("Category", "Operations")]
+        [Trait("Operations", "Double")]
         public void DoubleTest()
         {
+            this.output.WriteLine("Number Test Double");
+
             Rest rest = new();
-            Assert.Equal(16.153, rest.RestDouble(17.276, 1.1234), 3);
+            double a = 17.276;
+            double b = 1.1234;
+            int c = 3;
+
+            Assert.Equal(16.153, rest.RestDouble(a, b), c);
+
+            this.output.WriteLine($"Substraction of two numbers (double): {rest.RestDouble(a, b)}");
         }
 
-        [Fact]
+        [Fact(DisplayName = "Collection Test")]
+        [Trait("Category", "Collections")]
         public void CollectionTest()
         {
+            this.output.WriteLine("Collection Test");
+
             Company company = new();
             HumanResource hr1 = new("Juanito", "Nieves");
             HumanResource hr2 = new("Roberto", "Bateon");
@@ -78,7 +112,35 @@ namespace XUnitTestsExamples
             Assert.All(company.Workers, worker => Assert.False(string.IsNullOrEmpty(worker.Salary)));
         }
 
+        [Fact(DisplayName = "Type Test")]
+        [Trait("Category", "Type")]
+        public void TypeTest()
+        {
+            Company company = new();
+            HumanResource hr1 = new("Juanito", "Nieves");
+            HumanResource hr2 = new("Roberto", "Bateon");
+            
+            Assert.IsType<HumanResource>(hr1);
+            Assert.IsNotType<Manager>(hr1);
+            Assert.IsAssignableFrom<Worker>(hr1);
+            Assert.NotSame(hr1, hr2);
+        }
+
+        [Fact(DisplayName = "Null Test")]
+        [Trait("Category", "Null")]
+        public void NullTest()
+        {
+            HumanResource hr1 = new("Juanito", "Nieves");
+            hr1 = null;
+
+            Assert.Throws<NullReferenceException>(() => hr1.IsHRnull(hr1));           
+        }
 
 
+
+        public void Dispose()
+        {
+            output.WriteLine("Cleaning code...");
+        }
     }
 }
