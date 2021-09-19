@@ -121,22 +121,34 @@ namespace XUnitTestsExamples
             Assert.Equal(expected, result);
         }
 
-        [Theory, MemberData(nameof(Data))]
-        public void substractNumbersMemberDataTests(int a, int b, int expected)
+        [Theory(DisplayName = "Data driven - Internal Substraction Data")]
+        [MemberData(nameof(InternalSubstractionData.SubstractionTestData),
+         MemberType = typeof(InternalSubstractionData))]
+        public void substractNumbersinternalDataDrivenTests(int num1, int num2, int expectResult)
         {
             Rest substraction = new();
-            int result = substraction.substractIntegerNumbers(a, b);
-            Assert.Equal(expected, result);
+            int actualResult = substraction.substractIntegerNumbers(num1, num2);
+            Assert.Equal(expectResult, actualResult);
         }
-        
-        public static IEnumerable<object[]> Data =>
-            new List<object[]>
-            {
-                new object[] { 2, 1, 1},
-                new object[] { 4, 2, 2},
-                new object[] { 8, 2, 6}
-            };
 
+        [Theory(DisplayName = "Data driven - ExternalData")]
+        [MemberData(nameof(ExternalSubstractionData.SubstractionTestData),
+         MemberType = typeof(ExternalSubstractionData))]
+        public void substractNumbersExternalDataDriven(int num1, int num2, int expectResult)
+        {
+            Rest substraction = new();
+            int actualResult = substraction.substractIntegerNumbers(num1, num2);
+            Assert.Equal(expectResult, actualResult);
+        }
+
+        [Theory(DisplayName = "Data driven - DataAttribute")]
+        [SubstractionDataAttribute]
+        public void substractNumbersDataAttributeTests(int num1, int num2, int expectedResult)
+        {
+            Rest substraction = new();
+            int actualResult = substraction.substractIntegerNumbers(num1, num2);
+            Assert.Equal(expectedResult, actualResult);
+        }
 
         public void Dispose()
         {

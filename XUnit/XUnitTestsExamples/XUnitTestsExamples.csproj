@@ -24,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="SubstractionTestData.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TestData.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
