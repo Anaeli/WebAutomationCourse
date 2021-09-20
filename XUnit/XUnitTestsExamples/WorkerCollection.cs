@@ -1,6 +1,9 @@
-﻿namespace XUnitTestsExamples
+﻿using Xunit;
+
+namespace XUnitTestsExamples
 {
-    class WorkerCollection
+    [CollectionDefinition("Worker collection")]
+    public class WorkerCollection : ICollectionFixture<WorkerFixture>
     {
     }
 }
