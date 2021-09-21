@@ -8,9 +8,11 @@ namespace XUnitProject
         {
             this.Name = name;
             this.LastName = lastname;
+            
         }
 
         public string Name { get; set; }
+        public Guid ID { get; } = Guid.NewGuid();
         public string LastName { get; set; }
         public string FullName => $"{Name} {LastName}";
         public string Salary { get; set; }
