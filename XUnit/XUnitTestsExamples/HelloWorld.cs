@@ -29,14 +29,12 @@ namespace XUnitTestsExamples
             Assert.Contains("la Be", manager.FullName);
             Assert.StartsWith("Z", manager.Name);
             Assert.EndsWith("Benavidez", manager.FullName);
-<<<<<<< HEAD
-            Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]", manager.FullName);
-=======
+
             Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+", manager.FullName);
 
             manager.LastName = string.Empty;
             Assert.Empty(manager.LastName);
->>>>>>> 3f813a02f4612c6bb0fcf10c9f044f4a3920d5e0
+
         }
 
         [Fact(DisplayName = "TestInt")]
