@@ -1,13 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
 using XUnitProject;
 using XUnitTests;
+using Xunit.Abstractions;
 
 namespace XUnitTestsExamples
 {
-    public class PracticeFirstPart
+    public class PracticeFirstPart : IDisposable
     {
+        private readonly ITestOutputHelper output;
+        public PracticeFirstPart(ITestOutputHelper output)
+        {
+            this.output = output;
+            this.output.WriteLine("Init execution...");
+        }
         [Fact]
+        [Trait("HR", "Booleans")]
         public void Boolean()
         {
             // Validate FullName contains its name
@@ -16,6 +25,7 @@ namespace XUnitTestsExamples
         }
 
         [Fact]
+        [Trait("HR", "Strings")]
         public void String()
         {
             HumanResource hr = new("Juan", "Perez");
@@ -37,6 +47,7 @@ namespace XUnitTestsExamples
         }
 
         [Fact]
+        [Trait("Numbers", "Math")]
         public void Numbers()
         {
             // Test to validate that expect result of a rest is correct.
@@ -50,6 +61,7 @@ namespace XUnitTestsExamples
         }
 
         [Fact]
+        [Trait("HR", "Collections")]
         public void Collections()
         {
             Company company = new();
@@ -91,6 +103,33 @@ namespace XUnitTestsExamples
             hr4.Salary = "6000";
 
             Assert.All(company.Workers, worker => Assert.False(string.IsNullOrEmpty(worker.Salary)));
+        }
+       
+        [Fact]
+        [Trait("HR", "Instances")]
+        public void Instances()
+        {
+            //Rest rest = new();
+            HumanResource hr = new("Jaime", "Arze");
+            HumanResource hr1 = new("Cristian", "Martinez");
+            Assert.IsType<HumanResource>(hr);
+            Assert.IsNotType<Manager>(hr);
+            Assert.IsAssignableFrom<Worker>(hr);
+            Assert.NotSame(hr, hr1);
+        }
+
+        [Fact]
+        [Trait("HR", "Exceptions")]
+        public void Exceptions()
+        {
+            HumanResource hr3 = new(null, "Siles");
+            //hr3.Name = "21";
+            Assert.Throws<ArgumentNullException>(() => hr3.GetName());
+        }
+
+        public void Dispose()
+        {
+            this.output.WriteLine("Good");
         }
     }
 }

@@ -4,7 +4,9 @@ namespace XUnitProject
 {
     public class Worker
     {
-        public Worker(string name, string lastname)
+		public object ID;
+
+		public Worker(string name, string lastname)
         {
             this.Name = name;
             this.LastName = lastname;

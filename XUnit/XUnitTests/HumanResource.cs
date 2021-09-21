@@ -1,4 +1,5 @@
 ﻿using XUnitProject;
+using System;
 
 namespace XUnitTests
 {
@@ -8,5 +9,21 @@ namespace XUnitTests
         {
             
         }
-    }
+        public HumanResource HRIsNull(HumanResource hr)
+        {
+            if (hr is null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                return hr;
+            }
+        }
+
+		public void GetName()
+		{
+			throw new ArgumentNullException();
+		}
+	}
 }
