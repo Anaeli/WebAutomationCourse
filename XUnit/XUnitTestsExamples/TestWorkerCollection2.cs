@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XUnitProject;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
 
 namespace XUnitTestsExamples
@@ -38,11 +32,11 @@ namespace XUnitTestsExamples
             TestWorkerFixture.IdList.Add(workerFixture.Worker.ID);
         }
 
-        [Fact]
+        /*[Fact]
         public void TestSharedIDMethods()
         {
             Assert.NotEmpty(TestWorkerFixture.IdList);
             Assert.All(TestWorkerFixture.IdList, workerID => Assert.Equal(workerID, workerFixture.Worker.ID));
-        }
+        }*/
     }
 }

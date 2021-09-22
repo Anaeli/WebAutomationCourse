@@ -31,10 +31,10 @@ namespace XUnitTestsExamples
             IdList.Add(workerFixture.Worker.ID);
         }
 
-        [Fact]
+        /*[Fact]
         public void TestSharedIDMethods()
         {
             Assert.All(IdList, workerID => Assert.Equal(workerID, workerFixture.Worker.ID));
-        }
+        }*/
     }
 }
