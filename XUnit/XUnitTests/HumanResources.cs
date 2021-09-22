@@ -14,5 +14,17 @@ namespace XUnitTests
         {
 
         }
+
+        public HumanResources HRNullException(HumanResources HR)
+        {
+            if (HR is null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                return HR;
+            }
+        }
     }
 }

@@ -1,20 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 using XUnitProject;
 using XUnitTests;
 
 namespace XUnitTestsExamples
 {
-    public class PracticeFirstPart
+    public class PracticeFirstPart : IDisposable
     {
-        
-        [Fact]
+        private readonly ITestOutputHelper output;
+
+        public PracticeFirstPart (ITestOutputHelper output)
+        {
+            this.output = output;
+            this.output.WriteLine("Init execution...");
+        }
+
+        //[Fact]
+        [Fact(DisplayName = "Trait-Boolean")]
+        [Trait("Category", "Boolean")]
         public void Boolean()
             {
+
             HumanResources HR = new("Maria", "Galindo");
             HumanResources HR1 = new ("MARIA", "galindo");
             HumanResources HR2 = new("MARIA", "");
@@ -35,7 +43,9 @@ namespace XUnitTestsExamples
             //Use Assert.Empty to validate that HR LastName is empty
             Assert.Empty(HR2.LastName);
         }
-        [Fact]
+        //[Fact]
+        [Fact(DisplayName = "Trait-Numbers")]
+        [Trait("Category", "Numbers")]
         public void Numbers()
         {
             Rest rest = new();
@@ -47,7 +57,9 @@ namespace XUnitTestsExamples
             Assert.True(addition.RandomNumber() is >= 600 and <= 700, $"Random Number {addition.RandomNumber()}");
             Assert.InRange<int>(addition.RandomNumber(), 600, 700);
         }
-        [Fact]
+        //[Fact]
+        [Fact(DisplayName = "Trait-Double")]
+        [Trait("Category", "Double")]
         public void Double()
         {
             Rest rest = new();
@@ -55,7 +67,9 @@ namespace XUnitTestsExamples
             //Test to validate that the result of a rest of two double number is correct, use 3 as floating precision number.
             Assert.Equal(6.293, rest.restDouble(9.4475, 3.1546),3);
         }
-        [Fact]
+        //[Fact]
+        [Fact(DisplayName = "Trait-Colletion")]
+        [Trait("Category", "Colletion")]
         public void Colletion()
         {   
             //Create a collection with HR members (hrList), add HR members to company "workers" list.
@@ -95,6 +109,53 @@ namespace XUnitTestsExamples
             HR3.Salary = "1600";
 
            Assert.All(company.Workers, worker => Assert.False(string.IsNullOrWhiteSpace(worker.Salary)));
+        }
+
+        [Fact(DisplayName = "Trait-Instance")]
+        [Trait("Category", "Instance")]
+
+        public void Instance()
+        {
+            Company company = new();
+
+            HumanResources HR1 = new("Marcos", "Fernandez");
+            HumanResources HR2 = new("Gabriela", "Lopez");
+            HumanResources HR3 = new("Jose", "Chambi");
+            HumanResources HR4 = new("Lupe", "Sanchez");
+
+            List<HumanResources> hrList = new()
+            {
+                HR1,
+                HR2,
+                HR3
+            };
+
+            // Practice 2
+
+            // - A HR instance is HumanResource type.
+            Assert.IsType<HumanResources>(HR1);
+            // - A HR instance is not manager type.
+            Assert.IsNotType<Manager>(HR1);
+            // - A HR instance is assignable fromWorker.
+            Assert.IsAssignableFrom<Worker>(HR1);
+            // - 2 HR instances are not same.
+            Assert.NotSame(HR1, HR4);
+        }
+
+        [Fact(DisplayName = "Null Exception")]
+        [Trait("Category", "Null")]
+
+        public void NullException()
+        {
+            HumanResources HR1 = new HumanResources("Nitza", "Lopez");
+            HR1 = null;
+
+            Assert.Throws<NullReferenceException>(() => HR1.HRNullException(HR1));
+        }
+
+        public void Dispose()
+        {
+            output.WriteLine("Cleaning code...");
         }
     }
 }
