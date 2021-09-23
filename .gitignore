@@ -210,3 +210,4 @@ MT/MobileApplication/Scripts/TypeScripts/KpiPanelBubbleChart.js.map
 !Tools/*
 XUnit/XUnitTests/.vs/XUnitTests*
 XUnit/XUnitTestsExamples/.vs/XUnitTestsExamples*
+/.vs/slnx.sqlite
