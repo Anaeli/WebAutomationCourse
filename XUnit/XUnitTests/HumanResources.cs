@@ -8,6 +8,24 @@ namespace XUnitProject
 		{
 
 		}
+
+		public HumanResources()
+		{
+
+		}
+		public HumanResources isNullInstance(HumanResources humanResources)
+		{
+			if (humanResources is null)
+			{
+				throw new ArgumentNullException();
+			}
+			else
+			{
+				return humanResources;
+			}
+		}
 	}
+
+	
 }
 

@@ -4,12 +4,18 @@ namespace XUnitProject
 {
     public class Worker
     {
+
+
+        public Worker()
+        {
+
+        }
         public Worker(string name, string lastname)
         {
             this.Name = name;
             this.LastName = lastname;
         }
-
+        public Guid id { get; } = Guid.NewGuid();
         public string Name { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{Name} {LastName}";

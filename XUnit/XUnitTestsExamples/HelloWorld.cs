@@ -43,8 +43,8 @@ namespace XUnitTestsExamples
            
             Addition addition = new();
             Assert.Equal(15, addition.AddInt(5, 10));
-            Assert.True(addition.RandomNumber() is >= 1 and <= 100, $"Random Number {addition.RandomNumber()}");
-            Assert.InRange<int>(addition.RandomNumber(), 1, 100);
+            Assert.True(addition.RandomNumber(1, 101) is >= 1 and <= 100, $"Random Number {addition.RandomNumber(1,101)}");
+            Assert.InRange<int>(addition.RandomNumber(1,101), 1, 100);
         }
 
         [Fact]

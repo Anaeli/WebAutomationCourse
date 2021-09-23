@@ -9,10 +9,10 @@ namespace XUnitTests
             return num1 + num2;
         }
 
-        public int RandomNumber()
+        public int RandomNumber(int a, int b)
         {
             var rnd = new Random();
-            return rnd.Next(600, 701);
+            return rnd.Next(a, b);
             //return rnd.Next(101, 200);
         }
 
