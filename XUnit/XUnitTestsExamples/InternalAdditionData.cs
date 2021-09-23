@@ -8,6 +8,7 @@ namespace XUnitTestsExamples
         {
             get
             {
+
                 yield return new object[] { 2, 5, 7 };
                 yield return new object[] { 3, 6, 9 };
                 yield return new object[] { 4, 7, 11 };

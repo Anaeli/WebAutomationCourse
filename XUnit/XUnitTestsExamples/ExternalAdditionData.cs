@@ -11,7 +11,9 @@ namespace XUnitTestsExamples
         {
             get
             {
+FernandoSivila_XUnitProject
                 string[] csvLines = File.ReadAllLines("DataFile.csv");
+
                 var testCases = new List<Object[]>();
                 foreach (var csvLine in csvLines)
                 {
@@ -23,4 +25,6 @@ namespace XUnitTestsExamples
             }
         }
     }
+
 }
+

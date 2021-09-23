@@ -6,9 +6,11 @@ namespace XUnitTestsExamples
     public class TestDataDriven
     {
         [Theory()]
+
         [InlineData(10, 15, 25)]
         [InlineData(12, 5, 17)]
         [InlineData(3, 11, 14)]
+
         public void TestAddition(int num1, int num2, int expectResult)
         {
             Addition addition = new();
@@ -64,4 +66,6 @@ namespace XUnitTestsExamples
             Assert.Equal(expectResult, actualResult);
         }
     }
+
 }
+
