@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoQA.Automation.Framework.Wrappers", "DemoQA.Automation.Framework.Wrappers\DemoQA.Automation.Framework.Wrappers.csproj", "{B20B1A7B-E9E1-4EE3-88CB-CE650A414A9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoQA.Automation.Framework.Tests", "DemoQA.Automation.Framework.Tests\DemoQA.Automation.Framework.Tests.csproj", "{26882703-CEE0-43EE-A23E-EC885C756807}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B20B1A7B-E9E1-4EE3-88CB-CE650A414A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B20B1A7B-E9E1-4EE3-88CB-CE650A414A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B20B1A7B-E9E1-4EE3-88CB-CE650A414A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B20B1A7B-E9E1-4EE3-88CB-CE650A414A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26882703-CEE0-43EE-A23E-EC885C756807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26882703-CEE0-43EE-A23E-EC885C756807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26882703-CEE0-43EE-A23E-EC885C756807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26882703-CEE0-43EE-A23E-EC885C756807}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44A243C6-3AD0-4348-9FA3-F56965C8E6EE}
+	EndGlobalSection
+EndGlobal
