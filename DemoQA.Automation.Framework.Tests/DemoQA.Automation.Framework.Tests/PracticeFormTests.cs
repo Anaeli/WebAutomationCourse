@@ -4,29 +4,23 @@ using Xunit;
 
 namespace DemoQA.Automation.Framework.Tests
 {
-    public class PracticeFormTests : IDisposable
+    public class TextBoxFromTest : IDisposable
     {
-        private PracticeFormWrapper practiceForm;
+        private TextBoxFormWrapper practiceForm;
 
-        public PracticeFormTests()
+        public TextBoxFromTest()
         {
-            this.practiceForm = new PracticeFormWrapper();
+            this.practiceForm = new TextBoxFormWrapper();
         }
 
         [Theory]
-        [InlineData("Eliana", "Navia", "test@mail.com", "female", "1234567890")]
-        public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName, string email, string gender, string mobileNumber)
+        [InlineData("Eliana", "test@mail.com")]
+        public void ValidateNameEmail(string name, string email)
         {
             practiceForm.GoToPage();
-            practiceForm.NameTextBox.SendKeys(name);
-            practiceForm.LastNameTextBox.SendKeys(lastName);
+            practiceForm.FullNameTextBox.SendKeys(name);
             practiceForm.EmailTextBox.SendKeys(email);
-            practiceForm.SelectGenderRadioButton(gender);
-            practiceForm.MobileNumberTextBox.SendKeys(mobileNumber);
-            practiceForm.DateOfBirth.Clear();
-            practiceForm.FillDateOfBirth("08 Aug 2021");
-            practiceForm.StateDropDown.Click();
-            practiceForm.StateDropDown.SendKeys("NCR");
+            
         }
 
         public void Dispose()
