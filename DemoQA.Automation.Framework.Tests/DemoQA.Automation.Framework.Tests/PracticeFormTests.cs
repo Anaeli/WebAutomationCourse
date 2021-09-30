@@ -15,7 +15,7 @@ namespace DemoQA.Automation.Framework.Tests
         }
 
         [Theory]
-        [InlineData("Eliana", "Navia")]
+        [InlineData("Ruben", "Camargo")]
         public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName)
         {
             practiceForm.GoToPage();

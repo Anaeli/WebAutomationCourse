@@ -1,0 +1,6 @@
+﻿namespace XUnitTestsExamples
+{
+    class WorkerCollection
+    {
+    }
+}
