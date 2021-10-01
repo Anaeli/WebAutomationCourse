@@ -79,10 +79,28 @@
     <Folder Include="Students\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoQA.Automation.Framework.Utilities\DemoQA.Automation.Framework.Utilities.csproj">
+      <Project>{19c4b280-2d37-4a5e-9cd8-1edb27bbef66}</Project>
+      <Name>DemoQA.Automation.Framework.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoQA.Automation.Framework.Wrappers\DemoQA.Automation.Framework.Wrappers.csproj">
       <Project>{b20b1a7b-e9e1-4ee3-88cb-ce650a414a9e}</Project>
       <Name>DemoQA.Automation.Framework.Wrappers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Files\mando.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Files\The-Mandalorian-portada-scaled.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Files\THE-WITCHER-2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Files\the_witcher.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
