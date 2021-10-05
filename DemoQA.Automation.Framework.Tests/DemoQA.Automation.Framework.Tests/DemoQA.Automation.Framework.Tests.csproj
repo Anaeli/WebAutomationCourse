@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="PracticeFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students\DMZOPracticeTextBoxTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -75,9 +76,7 @@
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Students\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DemoQA.Automation.Framework.Utilities\DemoQA.Automation.Framework.Utilities.csproj">
       <Project>{19c4b280-2d37-4a5e-9cd8-1edb27bbef66}</Project>
