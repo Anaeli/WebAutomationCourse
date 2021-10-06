@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.Threading;
 
 namespace DemoQA.Automation.Framework.Wrappers
 {
@@ -21,6 +22,8 @@ namespace DemoQA.Automation.Framework.Wrappers
         public IWebElement EmailTextBox => driver.FindElement(By.Id("userEmail"));
 
         public IWebElement MaleRadioButton => driver.FindElement(By.Id("gender-radio-1"));
+
+        public IWebElement MaleLabelRadioButton => driver.FindElement(By.CssSelector("label[for='gender-radio-1']"));
         public IWebElement FemaleRadioButton => driver.FindElement(By.Id("gender-radio-2"));
 
         public IWebElement OtherRadioButton => driver.FindElement(By.Id("gender-radio-3"));
@@ -45,10 +48,10 @@ namespace DemoQA.Automation.Framework.Wrappers
             switch (state.ToLower())
             {
                 case "ncr":
-                    NCRStateDropDown.Click();
+                    PerformAction(NCRStateDropDown, driver);
                     break;
                 case "uttar pradesh":
-                    UttarPradeshStateDropDown.Click();
+                    PerformAction(UttarPradeshStateDropDown, driver);
                     break;
             }
         }
@@ -58,6 +61,7 @@ namespace DemoQA.Automation.Framework.Wrappers
         {
             PerformAction(ChooseFileButton, driver);
         }
+
         public void SelectGenderRadioButton(string gender)
         {
             switch (gender.ToLower())
@@ -77,12 +81,25 @@ namespace DemoQA.Automation.Framework.Wrappers
 
         public void SelectState(string state)
         {
-           AutomationClient.Instance.ScrollIntoView(StateDropDown);
+            AutomationClient.Instance.ScrollIntoView(StateDropDown);
             PerformAction(StateDropDown, driver);
             SelectStateByName(state);
 
         }
 
+
+        public void ClickSubmitButton()
+        {
+            AutomationClient.Instance.ScrollIntoView(SubmitButton);
+            // PerformAction(SubmitButton, driver);
+            ClickUsingJS(SubmitButton);
+        }
+
+        public void ClickUsingJS(IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].click();", element);
+        }
 
         public void SelectCity(string city)
         {
