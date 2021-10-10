@@ -1,14 +1,12 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
-using System;
-using System.Threading;
 
 namespace DemoQA.Automation.Framework.Wrappers
 {
     public class PracticeFormWrapper
     {
-        private IWebDriver driver = AutomationClient.Instance.Driver;
+        private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
         public PracticeFormWrapper()
         {

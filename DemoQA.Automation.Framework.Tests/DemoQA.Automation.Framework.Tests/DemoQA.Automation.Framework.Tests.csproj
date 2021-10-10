@@ -66,14 +66,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertsFrameWindows\BrowserWindowsTests.cs" />
+    <Compile Include="AlertsFrameWindows\FramesTests.cs" />
+    <Compile Include="AutomationFixture.cs" />
+    <Compile Include="AutomationTestBase.cs" />
+    <Compile Include="Client\URLsList.cs" />
     <Compile Include="Labels\ColorList.cs" />
     <Compile Include="Labels\TableLabels.cs" />
     <Compile Include="PracticeFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Students\DMZOPracticeTextBoxTests.cs" />
+    <Compile Include="Students\ECRPracticeTextBoxTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Students\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
