@@ -1,6 +1,4 @@
 ﻿using DemoQA.Automation.Framework.Tests.Client;
-using DemoQA.Automation.Framework.Wrappers;
-using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 using Xunit;
 
@@ -8,10 +6,10 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
 {
     public class BrowserWindowsTests: AutomationTestBase
     {
-        private readonly IWebDriver driver = AutomationClient.Instance.Driver;
+       
         public BrowserWindowsTests(AutomationFixture fixture) : base(fixture)
         {
-            AutomationClient.Instance.GoToPage(URLsList.BrowserWindowsURL);
+            this.client.GoToPage(URLsList.BrowserWindowsURL);
         }
 
         [Fact]

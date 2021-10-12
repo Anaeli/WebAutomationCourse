@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using DemoQA.Automation.Framework.Core;
+using OpenQA.Selenium;
 
 namespace DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows
 {
