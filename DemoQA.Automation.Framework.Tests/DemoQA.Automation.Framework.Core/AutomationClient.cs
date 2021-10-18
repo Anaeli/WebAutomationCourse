@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 
-namespace DemoQA.Automation.Framework.Wrappers
+namespace DemoQA.Automation.Framework.Core
 {
     public class AutomationClient
     {

@@ -15,7 +15,7 @@ namespace DemoQA.Automation.Framework.Tests
         public PracticeFormTests(AutomationFixture fixture) : base(fixture)
         {
             this.table = new TableComponentWrapper();
-            AutomationClient.Instance.GoToPage("https://demoqa.com/automation-practice-form");
+            this.client.GoToPage("https://demoqa.com/automation-practice-form");
         }
 
         [Theory]
