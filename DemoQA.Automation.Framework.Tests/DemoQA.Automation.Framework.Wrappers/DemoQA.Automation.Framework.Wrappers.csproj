@@ -51,6 +51,7 @@
     <Compile Include="AlertsFrameWindows\BrowserWindowsWrapper.cs" />
     <Compile Include="AlertsFrameWindows\FramesWrappers.cs" />
     <Compile Include="Components\TableComponentWrapper.cs" />
+    <Compile Include="Elements\DynamicPropertiesWrapper.cs" />
     <Compile Include="PracticeFormWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Students\ECRPracticeTextBoxWrapper.cs" />
@@ -58,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Students\AlertsFrameWindows\README.md" />
+    <None Include="Students\Forms\README.md" />
     <None Include="Students\README.md" />
   </ItemGroup>
   <ItemGroup>

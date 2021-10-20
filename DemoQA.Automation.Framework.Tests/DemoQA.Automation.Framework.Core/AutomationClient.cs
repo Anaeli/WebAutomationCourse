@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace DemoQA.Automation.Framework.Core
@@ -8,7 +9,7 @@ namespace DemoQA.Automation.Framework.Core
     {
         private IWebDriver driver;
         private static AutomationClient instance;
-
+        protected static WebDriverWait WebDriverWait { get; set; }
 
         private AutomationClient()
         {
@@ -26,11 +27,21 @@ namespace DemoQA.Automation.Framework.Core
             }
         }
 
+        public WebDriverWait Wait
+        {
+            get
+            {
+                return WebDriverWait;
+            }
+        }
+
         public IWebDriver InitWebDriver()
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Manage().Cookies.DeleteAllCookies();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(AutomationSettings.ImplicitWait);
+            WebDriverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(AutomationSettings.ExplicitWait));
             return driver;
         }
 
