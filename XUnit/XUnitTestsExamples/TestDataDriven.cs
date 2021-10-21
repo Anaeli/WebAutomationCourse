@@ -1,49 +1,67 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 using XUnitTests;
-using XUnitProject;
 
 namespace XUnitTestsExamples
 {
     public class TestDataDriven
     {
-        [Theory(DisplayName = "Inline Data")]
-        [InlineData(5, 5, 0)]
-        public void TestSubtrac(int num1, int num2, int expectedResult)
+        [Theory()]
+        [InlineData(4, 3, 7)]
+        [InlineData(2, 3, 5)]
+        [InlineData(3, 3, 6)]
+        public void TestAddition(int num1, int num2, int expectResult)
         {
-            Rest r1 = new();
-            int actualResult= r1.restInt(num1,num2);
-            Assert.Equal(expectedResult,actualResult);
-        }
-        [Theory(DisplayName = "Data Attribute")]
-        [RestDataAttribute]
-        public void TestSubtractDataAttribute(int num1, int num2, int expectedResult)
-        {
-            Rest r1 = new();
-            int actualResult= r1.restInt(num1,num2);
-            Assert.Equal(expectedResult,actualResult);
+            Addition addition = new();
+            int actualResult = addition.AddInt(num1, num2);
+            Assert.Equal(expectResult, actualResult);
         }
 
-        [Theory(DisplayName = "Internal Data")]
-        [MemberData(nameof(InternalRestData.TestData), MemberType = typeof(InternalRestData))]
-        public void TestSubtractInternalData(int num1, int num2, int expectedResult)
+        [Theory()]
+        [InlineData(2, 3, 5)]
+        public void TestAddition2(int num1, int num2, int expectResult)
         {
-            Rest r1 = new();
-            int actualResult= r1.restInt(num1,num2);
-            Assert.Equal(expectedResult,actualResult);
+            Addition addition = new();
+            int actualResult = addition.AddInt(num1, num2);
+            Assert.Equal(expectResult, actualResult);
         }
 
-        [Theory(DisplayName = "External Data")]
-        [MemberData(nameof(ExternalRestData.TestData), MemberType = typeof(ExternalRestData))]
-        public void TestSubtractExternalData(int num1, int num2, int expectedResult)
+        [Theory(DisplayName = "Data driven - DataAttribute")]
+        [AdditionDataAttribute]
+        public void TestAdditionDataDriven4(int num1, int num2, int expectResult)
         {
-            Rest r1 = new();
-            int actualResult= r1.restInt(num1,num2);
-            Assert.Equal(expectedResult,actualResult);
+            Addition addition = new();
+            int actualResult = addition.AddInt(num1, num2);
+            Assert.Equal(expectResult, actualResult);
         }
-        
+
+        [Theory(DisplayName = "Data driven - InternalData")]
+        [MemberData(nameof(InternalAdditionData.TestData),
+         MemberType = typeof(InternalAdditionData))]
+        public void TestAdditionDataDriven2(int num1, int num2, int expectResult)
+        {
+            Addition addition = new();
+            int actualResult = addition.AddInt(num1, num2);
+            Assert.Equal(expectResult, actualResult);
+        }
+
+        [Theory(DisplayName = "Data driven - InternalData")]
+        [MemberData(nameof(InternalAdditionData.TestData),
+         MemberType = typeof(InternalAdditionData))]
+        public void TestAdditionDataDriven9(int num1, int num2, int expectResult)
+        {
+            Addition addition = new();
+            int actualResult = addition.AddInt(num1, num2);
+            Assert.Equal(expectResult, actualResult);
+        }
+
+        [Theory(DisplayName = "Data driven - ExternalData")]
+        [MemberData(nameof(ExternalAdditionData.TestData),
+         MemberType = typeof(ExternalAdditionData))]
+        public void TestAdditionDataDriven3(int num1, int num2, int expectResult)
+        {
+            Addition addition = new();
+            int actualResult = addition.AddInt(num1, num2);
+            Assert.Equal(expectResult, actualResult);
+        }
     }
 }
