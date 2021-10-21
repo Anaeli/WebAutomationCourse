@@ -76,6 +76,8 @@
     <Compile Include="AutomationTestBase.cs" />
     <Compile Include="Client\URLsList.cs" />
     <Compile Include="Elements\DynamicPropertiesTests.cs" />
+    <Compile Include="Interactions\DroppableTests.cs" />
+    <Compile Include="Interactions\ResizableTests.cs" />
     <Compile Include="Labels\ColorList.cs" />
     <Compile Include="Labels\TableLabels.cs" />
     <Compile Include="PracticeFormTests.cs" />
