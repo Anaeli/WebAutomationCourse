@@ -76,10 +76,13 @@
     <Compile Include="AutomationTestBase.cs" />
     <Compile Include="Client\URLsList.cs" />
     <Compile Include="Elements\DynamicPropertiesTests.cs" />
+    <Compile Include="Interactions\DroppableTests.cs" />
+    <Compile Include="Interactions\ResizableTests.cs" />
     <Compile Include="Labels\ColorList.cs" />
     <Compile Include="Labels\TableLabels.cs" />
     <Compile Include="PracticeFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentsAutomationFixture.cs" />
     <Compile Include="Students\RGCAlertsTests.cs" />
     <Compile Include="Students\ECRPracticeTextBoxTest.cs" />
     <Compile Include="Students\RGCPracticeFormTests.cs" />

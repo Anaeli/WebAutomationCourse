@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="AutomationClient.cs" />
     <Compile Include="AutomationSettings.cs" />
+    <Compile Include="AutomationTrace.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\FindBy.cs" />
+    <Compile Include="Extensions\Wait.cs" />
+    <Compile Include="Extensions\WebDriverExtensions.cs" />
+    <Compile Include="Extensions\WebElementExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
