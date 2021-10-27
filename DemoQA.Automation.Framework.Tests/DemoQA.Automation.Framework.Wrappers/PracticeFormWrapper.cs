@@ -1,22 +1,26 @@
-﻿using DemoQA.Automation.Framework.Core;
+﻿using DemoQA.Automation.Core.Wrappers;
+using DemoQA.Automation.Core.Wrappers.Components;
+using DemoQA.Automation.Framework.Core;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 
 namespace DemoQA.Automation.Framework.Wrappers
 {
-    public class PracticeFormWrapper
+    public class PracticeFormWrapper : ContentScreenWrapper
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public PracticeFormWrapper()
+        protected PracticeFormWrapper(IWebElement container, AutomationClient client) : base(container, client)
         {
-           
+            this.NameTextBox = this.WaitForWrapper<TextBoxComponentWrapper>("firstName");
         }
 
-        public IWebElement NameTextBox => driver.FindElement(By.Id("firstName"));
+        public TextBoxComponentWrapper NameTextBox { get; set; }
+        //public TextBoxComponentWrapper NameTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("firstName");
 
-        public IWebElement LastNameTextBox => driver.FindElement(By.Id("lastName"));
+        // public IWebElement NameTextBox => driver.FindElement(By.Id("firstName"));
+
+        public TextBoxComponentWrapper LastNameTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("lastName");
 
         public IWebElement EmailTextBox => driver.FindElement(By.Id("userEmail"));
 
@@ -40,7 +44,7 @@ namespace DemoQA.Automation.Framework.Wrappers
 
         public IWebElement CityDropDown => driver.FindElement(By.Id("city"));
 
-        public IWebElement SubmitButton => driver.FindElement(By.Id("submit"));
+        public ButtonComponentWrapper SubmitButton => this.WaitForWrapper<ButtonComponentWrapper>("submit");
 
         private void SelectStateByName(string state)
         {
@@ -89,9 +93,9 @@ namespace DemoQA.Automation.Framework.Wrappers
 
         public void ClickSubmitButton()
         {
-            AutomationClient.Instance.ScrollIntoView(SubmitButton);
-            // PerformAction(SubmitButton, driver);
-            ClickUsingJS(SubmitButton);
+            //AutomationClient.Instance.ScrollIntoView(SubmitButton);
+            //// PerformAction(SubmitButton, driver);
+            //ClickUsingJS(SubmitButton);
         }
 
         public void ClickUsingJS(IWebElement element)
