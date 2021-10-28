@@ -18,7 +18,7 @@ namespace DemoQA.Automation.Framework.Tests
             this.client.GoToPage("https://demoqa.com/automation-practice-form");
         }
 
-        [Theory]
+        /*[Theory]
         [InlineData("Eliana", "Navia", "test@mail.com", "female", "1234567890")]
         public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName, string email, string gender, string mobileNumber)
         {
@@ -81,6 +81,6 @@ namespace DemoQA.Automation.Framework.Tests
                 Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.GetCssValue("border-color")));
                 Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.MobileNumberTextBox.GetCssValue("border-color")));
             });
-        }
+        }*/
     }
 }

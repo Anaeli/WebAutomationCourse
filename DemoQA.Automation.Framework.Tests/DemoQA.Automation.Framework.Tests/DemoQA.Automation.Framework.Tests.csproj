@@ -115,6 +115,9 @@
     <Compile Include="PracticeFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Students\ECRPracticeTextBoxTest.cs" />
+    <Compile Include="Students\HGRAlertTest.cs" />
+    <Compile Include="Students\HGRPracticeFormTest.cs" />
+    <Compile Include="Students\HGRPracticeTextBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
