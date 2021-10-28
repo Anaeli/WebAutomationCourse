@@ -84,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentsAutomationFixture.cs" />
     <Compile Include="Students\ECRPracticeTextBoxTest.cs" />
+    <Compile Include="Students\JCAlertsTests.cs" />
+    <Compile Include="Students\JCPracticeFormTests.cs" />
+    <Compile Include="Students\JCPracticeTextBoxTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -131,14 +134,14 @@
     <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.props'))" />
     <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.targets'))" />
     <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.95.0.4638.1700\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.95.0.4638.1700\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.95.0.4638.1700\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.95.0.4638.1700\build\Selenium.WebDriver.ChromeDriver.targets')" />
 </Project>

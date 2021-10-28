@@ -15,6 +15,8 @@ namespace DemoQA.Automation.Framework.Tests
 
         public DynamicPropertiesWrapper Dynamic { get; private set; }
 
+        public JCTextBoxFormWrapper jcPracticeTextBoxWrapper { get; private set; }
+
         public AutomationFixture()
         {
             PracticeForm = new PracticeFormWrapper();
@@ -22,6 +24,7 @@ namespace DemoQA.Automation.Framework.Tests
             Frames = new FramesWrappers();
             Alerts = new AlertsWrapper();
             Dynamic = new DynamicPropertiesWrapper();
+            jcPracticeTextBoxWrapper = new JCTextBoxFormWrapper();
         }
     }
 }
