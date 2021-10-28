@@ -2,7 +2,7 @@
 using System;
 using Xunit;
 
-namespace DemoQA.Automation.Framework.Tests.Students
+namespace DemoQA.Automation.Framework.Tests
 {
     public class ECRPracticeTextBoxTest : IDisposable
     {

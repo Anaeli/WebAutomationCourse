@@ -10,12 +10,12 @@ namespace DemoQA.Automation.Framework.Tests
 {
     public class PracticeFormTests :AutomationTestBase
     {
-        private TableComponentWrapper table;
+        private TableComponentWrapper Table;
 
         public PracticeFormTests(AutomationFixture fixture) : base(fixture)
         {
-            this.table = new TableComponentWrapper();
-            this.client.GoToPage("https://demoqa.com/automation-practice-form");
+            this.Table = new TableComponentWrapper();
+            this.Client.GoToPage("https://demoqa.com/automation-practice-form");
         }
 
         [Theory]
@@ -23,20 +23,20 @@ namespace DemoQA.Automation.Framework.Tests
         public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName, string email, string gender, string mobileNumber)
         {
             string pictureName = "mando.jpeg";   
-            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
-            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
-            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
-            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
-            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.PracticeForm.DateOfBirth.Clear();
-            this.fixture.PracticeForm.SelectChooseFile();
+            this.Fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.Fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.Fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.Fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.Fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.Fixture.PracticeForm.DateOfBirth.Clear();
+            this.Fixture.PracticeForm.SelectChooseFile();
             UploadFile.UploadFiles(pictureName);
-            this.fixture.PracticeForm.FillDateOfBirth("08 Aug 2021");
+            this.Fixture.PracticeForm.FillDateOfBirth("08 Aug 2021");
             //this.fixture.PracticeForm.SelectState("NCR");
             //this.fixture.PracticeForm.SelectCity("Delhi");
-            this.fixture.PracticeForm.ClickSubmitButton();
+            this.Fixture.PracticeForm.ClickSubmitButton();
 
-            IEnumerable<string> tableInfo = table.GetTextList();
+            IEnumerable<string> tableInfo = Table.GetTextList();
             Assert.Contains($"{TableLabels.StudentName} {name} {lastName}", tableInfo);
             Assert.Contains($"{TableLabels.StudentEmail} {email}", tableInfo);
             Assert.Contains($"{TableLabels.Mobile} {mobileNumber}", tableInfo);
@@ -48,10 +48,10 @@ namespace DemoQA.Automation.Framework.Tests
         [Fact]
         public void ValidateThatRequiredFiledAreMarkedWithRedIfThemHaveBeenNotFilled()
         {
-            this.fixture.PracticeForm.ClickSubmitButton();
-            string nameLabelColor = this.fixture.PracticeForm.NameTextBox.GetCssValue("border-color");
-            string lastNameLabelColor = this.fixture.PracticeForm.LastNameTextBox.GetCssValue("border-color");
-            string maleLabelColor = this.fixture.PracticeForm.MaleLabelRadioButton.GetCssValue("color");
+            this.Fixture.PracticeForm.ClickSubmitButton();
+            string nameLabelColor = this.Fixture.PracticeForm.NameTextBox.GetCssValue("border-color");
+            string lastNameLabelColor = this.Fixture.PracticeForm.LastNameTextBox.GetCssValue("border-color");
+            string maleLabelColor = this.Fixture.PracticeForm.MaleLabelRadioButton.GetCssValue("color");
             Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(nameLabelColor));
             Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(lastNameLabelColor));
             Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbaToHex(maleLabelColor));
@@ -61,16 +61,16 @@ namespace DemoQA.Automation.Framework.Tests
         [InlineData("Eliana", "Navia", "user", "Female", "12345678")]
         public void ValidateThatARequiredFieldIsMarkedWithRedWhenIncorrectValueIsEntered(string name, string lastName, string email, string gender, string mobileNumber)
         {
-            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
-            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
-            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
-            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
-            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.PracticeForm.ClickSubmitButton();
+            this.Fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.Fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.Fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.Fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.Fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.Fixture.PracticeForm.ClickSubmitButton();
 
-            Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.NameTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.EmailTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.MobileNumberTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(this.Fixture.PracticeForm.NameTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.Fixture.PracticeForm.EmailTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.Fixture.PracticeForm.MobileNumberTextBox.GetCssValue("border-color")));
         }
     }
 }

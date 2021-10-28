@@ -7,17 +7,17 @@ namespace DemoQA.Automation.Framework.Tests
 {
     public class AutomationTestBase: IClassFixture<AutomationFixture>, IDisposable
     {
-        public AutomationFixture fixture { get; private set; }
+        public AutomationFixture Fixture { get; private set; }
 
-        public IWebDriver driver { get; private set; }
+        public IWebDriver Driver { get; private set; }
 
-        public AutomationClient client { get; private set; }
+        public AutomationClient Client { get; private set; }
 
         public AutomationTestBase(AutomationFixture fixture)
         {
-            this.fixture = fixture;
-            driver = AutomationClient.Instance.Driver;
-            client = AutomationClient.Instance;
+            this.Fixture = fixture;
+            Driver = AutomationClient.Instance.Driver;
+            Client = AutomationClient.Instance;
         }
 
         public void Dispose()

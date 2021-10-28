@@ -16,7 +16,7 @@ namespace DemoQA.Automation.Framework.Tests
         [Fact]
         public void ValidateRandomText()
         {
-            Assert.Equal("This text has random Id", this.fixture.Dynamic.RandomText.Text);
+            Assert.Equal("This text has random Id", this.Fixture.Dynamic.RandomText.Text);
         }
 
         [Fact]
@@ -24,8 +24,8 @@ namespace DemoQA.Automation.Framework.Tests
         {
            // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-           this.client.Wait.Until(ExpectedConditions.ElementToBeClickable(this.fixture.Dynamic.EnableAfterBtn));
-            Assert.True(this.fixture.Dynamic.EnableAfterBtn.Enabled, $"Enable After button is not enabled after 5 seconds");
+           this.Client.Wait.Until(ExpectedConditions.ElementToBeClickable(this.Fixture.Dynamic.EnableAfterBtn));
+            Assert.True(this.Fixture.Dynamic.EnableAfterBtn.Enabled, $"Enable After button is not enabled after 5 seconds");
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace DemoQA.Automation.Framework.Tests
         {
             // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-            this.client.Wait.Equals(ExpectedConditions.Equals(ColorList.Red, this.fixture.Dynamic.ColorChangeBtn.GetCssValue("color")));
+            this.Client.Wait.Equals(ExpectedConditions.Equals(ColorList.Red, this.Fixture.Dynamic.ColorChangeBtn.GetCssValue("color")));
         }
        
 
@@ -41,8 +41,8 @@ namespace DemoQA.Automation.Framework.Tests
         public void ValidateIsVisibleAfter5Seconds()
         {
             // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            this.client.Wait.Until(ExpectedConditions.ElementExists(By.Id("visibleAfter")));
-            Assert.True(this.fixture.Dynamic.VisibleAfterBtn.Displayed, $"Visible After button is not visible after 5 seconds");
+            this.Client.Wait.Until(ExpectedConditions.ElementExists(By.Id("visibleAfter")));
+            Assert.True(this.Fixture.Dynamic.VisibleAfterBtn.Displayed, $"Visible After button is not visible after 5 seconds");
         }
     }
 }

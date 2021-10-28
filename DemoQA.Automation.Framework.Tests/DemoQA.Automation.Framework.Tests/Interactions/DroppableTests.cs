@@ -15,11 +15,11 @@ namespace DemoQA.Automation.Framework.Tests.Interactions
         [Fact]
         public void TestDragAndDrop()
         {
-            IWebElement dragFrom = this.driver.FindElement(By.Id("draggable"));
-            IWebElement dropTo = this.driver.FindElement(By.Id("droppable"));
+            IWebElement dragFrom = this.Driver.FindElement(By.Id("draggable"));
+            IWebElement dropTo = this.Driver.FindElement(By.Id("droppable"));
 
             //Target
-            IAction dragAndDrop = new Actions(this.driver).ClickAndHold(dragFrom)
+            IAction dragAndDrop = new Actions(this.Driver).ClickAndHold(dragFrom)
                     .MoveToElement(dropTo).Release(dropTo).Build();
             dragAndDrop.Perform();
 

@@ -20,13 +20,13 @@ namespace DemoQA.Automation.Framework.Tests.Interactions
         [Fact]
         public void TestDragSlider()
         {
-            IWebElement box = this.driver.FindElement(By.Id("resizableBoxWithRestriction"));
+            IWebElement box = this.Driver.FindElement(By.Id("resizableBoxWithRestriction"));
 
             Assert.Equal("width: 200px; height: 200px;", box.GetAttribute("style"));
 
-            IWebElement elem = this.driver.FindElement(By.ClassName("react-resizable-handle"));
+            IWebElement elem = this.Driver.FindElement(By.ClassName("react-resizable-handle"));
 
-            new Actions(this.driver).DragAndDropToOffset(elem, 260, 100).Build().Perform();
+            new Actions(this.Driver).DragAndDropToOffset(elem, 260, 100).Build().Perform();
 
             Assert.Equal("width: 460px; height: 300px;", box.GetAttribute("style"));
         }

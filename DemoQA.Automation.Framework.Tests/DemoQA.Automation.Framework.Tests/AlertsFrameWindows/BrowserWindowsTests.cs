@@ -9,46 +9,46 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
        
         public BrowserWindowsTests(AutomationFixture fixture) : base(fixture)
         {
-            this.client.GoToPage(URLsList.BrowserWindowsURL);
+            this.Client.GoToPage(URLsList.BrowserWindowsURL);
         }
 
         [Fact]
         public void ValidateThatANewTabIsOpen()
         {
-            this.fixture.BrowserWindows.NewTabButton.Click();
+            this.Fixture.BrowserWindows.NewTabButton.Click();
 
-            ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
+            ReadOnlyCollection<string> windowHandles = Driver.WindowHandles;
 
             string firstTab = windowHandles[0];
             string lastTab = windowHandles[windowHandles.Count - 1];
-            driver.SwitchTo().Window(lastTab);
+            Driver.SwitchTo().Window(lastTab);
 
-            Assert.Equal("This is a sample page", this.fixture.BrowserWindows.SampleHeading.Text);
-            driver.SwitchTo().Window(firstTab); //back to first tab/window
+            Assert.Equal("This is a sample page", this.Fixture.BrowserWindows.SampleHeading.Text);
+            Driver.SwitchTo().Window(firstTab); //back to first tab/window
         }
 
         [Fact]
         public void ValidateThatANewWindowIsOpen()
         {
-            this.fixture.BrowserWindows.NewWindowButton.Click();
+            this.Fixture.BrowserWindows.NewWindowButton.Click();
 
-            ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
+            ReadOnlyCollection<string> windowHandles = Driver.WindowHandles;
             string lastTab = windowHandles[windowHandles.Count - 1];
-            driver.SwitchTo().Window(lastTab);
+            Driver.SwitchTo().Window(lastTab);
 
-            Assert.Equal("This is a sample page", this.fixture.BrowserWindows.SampleHeading.Text);
+            Assert.Equal("This is a sample page", this.Fixture.BrowserWindows.SampleHeading.Text);
         }
 
         [Fact]
         public void ValidateThatANewWindowMessageIsOpen()
         {
-            this.fixture.BrowserWindows.NewWindowMessageBtn.Click();
+            this.Fixture.BrowserWindows.NewWindowMessageBtn.Click();
 
-            ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
+            ReadOnlyCollection<string> windowHandles = Driver.WindowHandles;
             string lastTab = windowHandles[windowHandles.Count - 1];
-            driver.SwitchTo().Window(lastTab);
+            Driver.SwitchTo().Window(lastTab);
 
-            Assert.Contains("Knowledge increases by sharing but not by saving", this.fixture.BrowserWindows.BodyMessage.Text);
+            Assert.Contains("Knowledge increases by sharing but not by saving", this.Fixture.BrowserWindows.BodyMessage.Text);
         }
     }
 }
