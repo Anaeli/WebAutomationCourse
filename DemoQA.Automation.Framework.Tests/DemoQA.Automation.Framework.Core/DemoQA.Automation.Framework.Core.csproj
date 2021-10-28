@@ -45,10 +45,30 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomationClient.cs" />
+    <Compile Include="AutomationSettings.cs" />
+    <Compile Include="AutomationTrace.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\FindBy.cs" />
+    <Compile Include="Extensions\Wait.cs" />
+    <Compile Include="Extensions\WebDriverExtensions.cs" />
+    <Compile Include="Extensions\WebElementExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wrappers\BaseComponentWrapper.cs" />
+    <Compile Include="Wrappers\BaseStyledComponentWrapper.cs" />
+    <Compile Include="Wrappers\Components\Button\ButtonComponentWrapper.cs" />
+    <Compile Include="Wrappers\Components\Button\RadioButtonComponentWrapper.cs" />
+    <Compile Include="Wrappers\Components\DropDownListComponentWrapper.cs" />
+    <Compile Include="Wrappers\Components\TableComponentWrapper.cs" />
+    <Compile Include="Wrappers\Components\TextBoxComponentWrapper.cs" />
+    <Compile Include="Wrappers\ContentScreenWrapper.cs" />
+    <Compile Include="Wrappers\ElementWrapper.cs" />
+    <Compile Include="Wrappers\KeysWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
