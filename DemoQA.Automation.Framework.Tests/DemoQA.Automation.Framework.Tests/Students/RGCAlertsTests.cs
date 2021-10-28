@@ -40,20 +40,26 @@ namespace DemoQA.Automation.Framework.Tests.Students
             Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
         }
 
-        [Fact]
-        public void ValidatesAlertToReceiveOkOrDismiss()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ValidatesAlertToReceiveOkOrDismiss(bool confirm)
         {
             this.fixture.Alerts.ConfirmButton.Click();
             IAlert confirmAlert = driver.SwitchTo().Alert();
-            Assert.Equal("Do you confirm action?", confirmAlert.Text);
-            confirmAlert.Accept();
-            Assert.Equal("You selected Ok", this.fixture.Alerts.ConfirmResult.Text);
+            if (confirm == true)
+            {
+                Assert.Equal("Do you confirm action?", confirmAlert.Text);
+                confirmAlert.Accept();
+                Assert.Equal("You selected Ok", this.fixture.Alerts.ConfirmResult.Text);
+            }
+            else
+            {
+                Assert.Equal("Do you confirm action?", confirmAlert.Text);
+                confirmAlert.Dismiss();
+                Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
+            }
 
-            this.fixture.Alerts.ConfirmButton.Click();
-            IAlert dismissAlert = driver.SwitchTo().Alert();
-            Assert.Equal("Do you confirm action?", dismissAlert.Text);
-            dismissAlert.Dismiss();
-            Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
         }
 
         [Theory]

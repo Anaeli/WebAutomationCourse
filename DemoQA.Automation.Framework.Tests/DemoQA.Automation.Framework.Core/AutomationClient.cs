@@ -1,7 +1,11 @@
-﻿using OpenQA.Selenium;
+﻿using DemoQA.Automation.Core.Extensions;
+using DemoQA.Automation.Core.Wrappers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Globalization;
+using System.Reflection;
 
 namespace DemoQA.Automation.Framework.Core
 {
@@ -73,6 +77,39 @@ namespace DemoQA.Automation.Framework.Core
         public void ScrollIntoView(IWebElement element)
         {
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoViewIfNeeded(true);", element);
+        }
+
+        public void ClickUsingJS(IWebElement element, IWebDriver driver)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].click();", element);
+        }
+
+        /// <summary>
+        /// Automates a VSCode wrapper based on ContentScreenWrapper
+        /// </summary>
+        public void AutomateActivePage<tContentScreenWrapper>(Action<tContentScreenWrapper> automate) where tContentScreenWrapper : ContentScreenWrapper
+        {
+            tContentScreenWrapper wrapper = null;
+
+            var container = driver.FindElementSafe(By.ClassName("body-height"));
+            if (container.ExistsAndVisible())
+            {
+                wrapper = CreateWrapper<tContentScreenWrapper>("Content screen", container);
+            }
+
+            automate(wrapper);
+        }
+
+        /// <summary>
+        /// Creates a wrapper based on ContentScreenWrapper
+        /// </summary>
+        private tContentScreenWrapper CreateWrapper<tContentScreenWrapper>(string context, IWebElement container) where tContentScreenWrapper : ContentScreenWrapper
+        {
+            var bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.CreateInstance;
+            object[] paremeters = { container, this };
+
+            return (tContentScreenWrapper)Activator.CreateInstance(typeof(tContentScreenWrapper), bindingFlags, (Binder)null, paremeters, (CultureInfo)null);
         }
     }
 }
