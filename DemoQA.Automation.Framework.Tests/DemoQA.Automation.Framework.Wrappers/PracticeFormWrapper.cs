@@ -1,16 +1,18 @@
-﻿using DemoQA.Automation.Core.Wrappers;
-using DemoQA.Automation.Core.Wrappers.Components;
-using DemoQA.Automation.Framework.Core;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-
-namespace DemoQA.Automation.Framework.Wrappers
+﻿namespace DemoQA.Automation.Framework.Wrappers
 {
+    using DemoQA.Automation.Core.Wrappers;
+    using DemoQA.Automation.Core.Wrappers.Components;
+    using DemoQA.Automation.Core.Wrappers.Components.Button;
+    using DemoQA.Automation.Framework.Core;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Interactions;
+
     public class PracticeFormWrapper : ContentScreenWrapper
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        protected PracticeFormWrapper(IWebElement container, AutomationClient client) : base(container, client)
+        protected PracticeFormWrapper(IWebElement container, AutomationClient client)
+            : base(container, client)
         {
             this.NameTextBox = this.WaitForWrapper<TextBoxComponentWrapper>("firstName");
         }
@@ -22,7 +24,7 @@ namespace DemoQA.Automation.Framework.Wrappers
 
         public TextBoxComponentWrapper LastNameTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("lastName");
 
-        public IWebElement EmailTextBox => driver.FindElement(By.Id("userEmail"));
+        public TextBoxComponentWrapper EmailTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("userEmail");
 
         public IWebElement MaleRadioButton => driver.FindElement(By.Id("gender-radio-1"));
 
@@ -31,7 +33,7 @@ namespace DemoQA.Automation.Framework.Wrappers
 
         public IWebElement OtherRadioButton => driver.FindElement(By.Id("gender-radio-3"));
 
-        public IWebElement MobileNumberTextBox => driver.FindElement(By.Id("userNumber"));
+        public TextBoxComponentWrapper MobileNumberTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("userNumber");
 
         public IWebElement DateOfBirth => driver.FindElement(By.Id("dateOfBirthInput"));
 
@@ -88,14 +90,6 @@ namespace DemoQA.Automation.Framework.Wrappers
             PerformAction(StateDropDown, driver);
             SelectStateByName(state);
 
-        }
-
-
-        public void ClickSubmitButton()
-        {
-            //AutomationClient.Instance.ScrollIntoView(SubmitButton);
-            //// PerformAction(SubmitButton, driver);
-            //ClickUsingJS(SubmitButton);
         }
 
         public void ClickUsingJS(IWebElement element)
