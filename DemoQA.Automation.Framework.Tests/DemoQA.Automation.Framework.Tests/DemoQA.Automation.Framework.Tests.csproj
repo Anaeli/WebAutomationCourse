@@ -76,7 +76,10 @@
     <Compile Include="Labels\TableLabels.cs" />
     <Compile Include="PracticeFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students\MCAlertsTests.cs" />
     <Compile Include="Students\ECRPracticeTextBoxTest.cs" />
+    <Compile Include="Students\MCPracticeTextBoxTest.cs" />
+    <Compile Include="Students\MCPracticeFormTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

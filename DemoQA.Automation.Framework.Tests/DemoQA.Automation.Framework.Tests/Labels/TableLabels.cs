@@ -51,5 +51,25 @@
         /// State and City label.
         /// </summary>
         public const string StateAndCity = "State and City";
+        
+        /// <summary>
+        /// Full Name.
+        /// </summary>
+        public const string FullName = "Full Name";
+
+        /// <summary>
+        /// Email.
+        /// </summary>
+        public const string Email = "Email";
+
+        /// <summary>
+        /// Current Address.
+        /// </summary>
+        public const string CurrentAddress = "Current Address";
+
+        /// <summary>
+        /// Permanent Address.
+        /// </summary>
+        public const string PermanentAddress = "Permanent Address";
     }
 }

@@ -80,16 +80,15 @@ namespace DemoQA.Automation.Framework.Wrappers
 
         public void SelectState(string state)
         {
-            AutomationClient.Instance.ScrollIntoView(StateDropDown);
-            PerformAction(StateDropDown, driver);
-            SelectStateByName(state);
+            StateDropDown.Click();
+            driver.FindElement(By.XPath($"//div[text()='{state}']")).Click();
 
         }
 
 
         public void ClickSubmitButton()
         {
-            AutomationClient.Instance.ScrollIntoView(SubmitButton);
+            // AutomationClient.Instance.ScrollIntoView(SubmitButton);
             // PerformAction(SubmitButton, driver);
             ClickUsingJS(SubmitButton);
         }

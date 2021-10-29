@@ -14,7 +14,7 @@ namespace DemoQA.Automation.Framework.Tests.Students
         }
 
         [Theory]
-        [InlineData("Ebert Cervantes", "ebert.cervantes@gmail.com")]
+        [InlineData("a", "a@gmail.com")]
         public void ValidatesThatFormIsFillSuccessfuly(string fullName, string eMail)
         {
             ecrPracticeTextBoxWrapper.GoToPage();
