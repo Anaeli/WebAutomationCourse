@@ -83,7 +83,6 @@ namespace DemoQA.Automation.Framework.Wrappers
             AutomationClient.Instance.ScrollIntoView(StateDropDown);
             PerformAction(StateDropDown, driver);
             SelectStateByName(state);
-
         }
 
 
