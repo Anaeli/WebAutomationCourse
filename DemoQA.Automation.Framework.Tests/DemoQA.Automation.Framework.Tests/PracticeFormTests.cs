@@ -23,18 +23,18 @@ namespace DemoQA.Automation.Framework.Tests
         public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName, string email, string gender, string mobileNumber)
         {
             string pictureName = "mando.jpeg";   
-            this.fixture.dzoPracticeFormWrapper.NameTextBox.SendKeys(name);
-            this.fixture.dzoPracticeFormWrapper.LastNameTextBox.SendKeys(lastName);
-            this.fixture.dzoPracticeFormWrapper.EmailTextBox.SendKeys(email);
-            this.fixture.dzoPracticeFormWrapper.SelectGenderRadioButton(gender);
-            this.fixture.dzoPracticeFormWrapper.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.dzoPracticeFormWrapper.DateOfBirth.Clear();
-            this.fixture.dzoPracticeFormWrapper.SelectChooseFile();
+            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.fixture.PracticeForm.DateOfBirth.Clear();
+            this.fixture.PracticeForm.SelectChooseFile();
             UploadFile.UploadFiles(pictureName);
-            this.fixture.dzoPracticeFormWrapper.FillDateOfBirth("08 Aug 2021");
+            this.fixture.PracticeForm.FillDateOfBirth("08 Aug 2021");
             //this.fixture.PracticeForm.SelectState("NCR");
             //this.fixture.PracticeForm.SelectCity("Delhi");
-            this.fixture.dzoPracticeFormWrapper.ClickSubmitButton();
+            this.fixture.PracticeForm.ClickSubmitButton();
 
             IEnumerable<string> tableInfo = table.GetTextList();
             Assert.Contains($"{TableLabels.StudentName} {name} {lastName}", tableInfo);
@@ -48,10 +48,10 @@ namespace DemoQA.Automation.Framework.Tests
         [Fact]
         public void ValidateThatRequiredFiledAreMarkedWithRedIfThemHaveBeenNotFilled()
         {
-            this.fixture.dzoPracticeFormWrapper.ClickSubmitButton();
-            string nameLabelColor = this.fixture.dzoPracticeFormWrapper.NameTextBox.GetCssValue("border-color");
-            string lastNameLabelColor = this.fixture.dzoPracticeFormWrapper.LastNameTextBox.GetCssValue("border-color");
-            string maleLabelColor = this.fixture.dzoPracticeFormWrapper.MaleLabelRadioButton.GetCssValue("color");
+            this.fixture.PracticeForm.ClickSubmitButton();
+            string nameLabelColor = this.fixture.PracticeForm.NameTextBox.GetCssValue("border-color");
+            string lastNameLabelColor = this.fixture.PracticeForm.LastNameTextBox.GetCssValue("border-color");
+            string maleLabelColor = this.fixture.PracticeForm.MaleLabelRadioButton.GetCssValue("color");
             Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(nameLabelColor));
             Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(lastNameLabelColor));
             Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbaToHex(maleLabelColor));
@@ -61,16 +61,16 @@ namespace DemoQA.Automation.Framework.Tests
         [InlineData("Eliana", "Navia", "user", "Female", "12345678")]
         public void ValidateThatARequiredFieldIsMarkedWithRedWhenIncorrectValueIsEntered(string name, string lastName, string email, string gender, string mobileNumber)
         {
-            this.fixture.dzoPracticeFormWrapper.NameTextBox.SendKeys(name);
-            this.fixture.dzoPracticeFormWrapper.LastNameTextBox.SendKeys(lastName);
-            this.fixture.dzoPracticeFormWrapper.EmailTextBox.SendKeys(email);
-            this.fixture.dzoPracticeFormWrapper.SelectGenderRadioButton(gender);
-            this.fixture.dzoPracticeFormWrapper.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.dzoPracticeFormWrapper.ClickSubmitButton();
+            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.fixture.PracticeForm.ClickSubmitButton();
 
-            Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.NameTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.EmailTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.MobileNumberTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.NameTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.EmailTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.MobileNumberTextBox.GetCssValue("border-color")));
         }
     }
 }

@@ -28,20 +28,20 @@ namespace DemoQA.Automation.Framework.Tests.Students
         {
 
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            this.fixture.dzoPracticeFormWrapper.NameTextBox.SendKeys(name);
-            this.fixture.dzoPracticeFormWrapper.LastNameTextBox.SendKeys(lastName);
-            this.fixture.dzoPracticeFormWrapper.EmailTextBox.SendKeys(email);
-            this.fixture.dzoPracticeFormWrapper.SelectGenderRadioButton(gender);
-            this.fixture.dzoPracticeFormWrapper.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.dzoPracticeFormWrapper.DateOfBirth.Clear();
+            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.fixture.PracticeForm.DateOfBirth.Clear();
 
 
-            this.fixture.dzoPracticeFormWrapper.FillDateOfBirth("08 Aug 2021");
+            this.fixture.PracticeForm.FillDateOfBirth("08 Aug 2021");
             js.ExecuteScript("window.scrollBy(0,900)");
 
-            this.fixture.dzoPracticeFormWrapper.SelectState(state);
-            this.fixture.dzoPracticeFormWrapper.SelectCity(city);
-            this.fixture.dzoPracticeFormWrapper.ClickSubmitButton();
+            this.fixture.PracticeForm.SelectState(state);
+            this.fixture.PracticeForm.SelectCity(city);
+            this.fixture.PracticeForm.ClickSubmitButton();
             
             IEnumerable<string> tableInfo = dzoPracticeFormWrapper.GetTextList();
             Assert.Contains($"{TableLabels.StateAndCity} NCR Delhi", tableInfo);
@@ -52,18 +52,18 @@ namespace DemoQA.Automation.Framework.Tests.Students
         [InlineData("", "", "user", "", "")]
         public void ValidateThatARequiredFieldIsMarkedWithRedWhenIncorrectValue(string name, string lastName, string email, string gender, string mobileNumber)
         {
-            this.fixture.dzoPracticeFormWrapper.NameTextBox.SendKeys(name);
-            this.fixture.dzoPracticeFormWrapper.LastNameTextBox.SendKeys(lastName);
-            this.fixture.dzoPracticeFormWrapper.EmailTextBox.SendKeys(email);
+            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
 
-            this.fixture.dzoPracticeFormWrapper.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.dzoPracticeFormWrapper.ClickSubmitButton();
+            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.fixture.PracticeForm.ClickSubmitButton();
 
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.NameTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.LastNameTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.EmailTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.MobileNumberTextBox.GetCssValue("border-color")));
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.dzoPracticeFormWrapper.MaleLabelRadioButton.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.NameTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.LastNameTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.EmailTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.MobileNumberTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.MaleLabelRadioButton.GetCssValue("border-color")));
         }
     }
 }
