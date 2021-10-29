@@ -54,6 +54,7 @@
     <Compile Include="Elements\DynamicPropertiesWrapper.cs" />
     <Compile Include="PracticeFormWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students\DZOPracticeTextBoxWrapper.cs" />
     <Compile Include="Students\ECRPracticeTextBoxWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
