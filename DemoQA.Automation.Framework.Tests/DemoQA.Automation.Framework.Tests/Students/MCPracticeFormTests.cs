@@ -23,17 +23,17 @@ namespace DemoQA.Automation.Framework.Tests
         [InlineData("Marco", "Chavez", "user@ggmail.com", "Male", "6668985451")]
         public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName, string email, string gender, string mobileNumber)
         {
-            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
-            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
-            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
-            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
-            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.PracticeForm.DateOfBirth.Clear();
+            this.Fixture.PracticeForm.NameTextBox.SetValue(name);
+            this.Fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.Fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.Fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.Fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.Fixture.PracticeForm.DateOfBirth.Clear();
             
-            this.fixture.PracticeForm.FillDateOfBirth("08 Aug 2021");
-            this.fixture.PracticeForm.SelectState("Haryana");
-            this.fixture.PracticeForm.SelectCity("Karnal");
-            this.fixture.PracticeForm.ClickSubmitButton();
+            this.Fixture.PracticeForm.FillDateOfBirth("08 Aug 2021");
+            this.Fixture.PracticeForm.SelectState("Haryana");
+            this.Fixture.PracticeForm.SelectCity("Karnal");
+            this.Fixture.PracticeForm.ClickSubmitButton();
 
             Thread.Sleep(1500);
 
@@ -48,17 +48,17 @@ namespace DemoQA.Automation.Framework.Tests
         // [InlineData("Marco", "", "user", "Male", "6668985451")]        
         public void ValidateThatARequiredFieldIsMarkedWithRedWhenIncorrectValueIsEntered(string name, string lastName, string email, string gender, string mobileNumber)
         {
-            this.fixture.PracticeForm.NameTextBox.SendKeys(name);
-            this.fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
-            this.fixture.PracticeForm.EmailTextBox.SendKeys(email);
-            this.fixture.PracticeForm.SelectGenderRadioButton(gender);
-            this.fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
-            this.fixture.PracticeForm.ClickSubmitButton();
+            this.Fixture.PracticeForm.NameTextBox.SendKeys(name);
+            this.Fixture.PracticeForm.LastNameTextBox.SendKeys(lastName);
+            this.Fixture.PracticeForm.EmailTextBox.SendKeys(email);
+            this.Fixture.PracticeForm.SelectGenderRadioButton(gender);
+            this.Fixture.PracticeForm.MobileNumberTextBox.SendKeys(mobileNumber);
+            this.Fixture.PracticeForm.ClickSubmitButton();
 
             Thread.Sleep(1500);
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.EmailTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.Fixture.PracticeForm.EmailTextBox.GetCssValue("border-color")));
             Thread.Sleep(1500);
-            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.fixture.PracticeForm.MobileNumberTextBox.GetCssValue("border-color")));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(this.Fixture.PracticeForm.MobileNumberTextBox.GetCssValue("border-color")));
         }
     }
 }

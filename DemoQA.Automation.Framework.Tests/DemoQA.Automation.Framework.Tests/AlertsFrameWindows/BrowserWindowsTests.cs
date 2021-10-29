@@ -15,7 +15,7 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
         [Fact]
         public void ValidateThatANewTabIsOpen()
         {
-            this.fixture.BrowserWindows.NewTabButton.Click();
+            this.Fixture.BrowserWindows.NewTabButton.Click();
 
             ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
 
@@ -23,32 +23,32 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
             string lastTab = windowHandles[windowHandles.Count - 1];
             driver.SwitchTo().Window(lastTab);
 
-            Assert.Equal("This is a sample page", this.fixture.BrowserWindows.SampleHeading.Text);
+            Assert.Equal("This is a sample page", this.Fixture.BrowserWindows.SampleHeading.Text);
             driver.SwitchTo().Window(firstTab); //back to first tab/window
         }
 
         [Fact]
         public void ValidateThatANewWindowIsOpen()
         {
-            this.fixture.BrowserWindows.NewWindowButton.Click();
+            this.Fixture.BrowserWindows.NewWindowButton.Click();
 
             ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
             string lastTab = windowHandles[windowHandles.Count - 1];
             driver.SwitchTo().Window(lastTab);
 
-            Assert.Equal("This is a sample page", this.fixture.BrowserWindows.SampleHeading.Text);
+            Assert.Equal("This is a sample page", this.Fixture.BrowserWindows.SampleHeading.Text);
         }
 
         [Fact]
         public void ValidateThatANewWindowMessageIsOpen()
         {
-            this.fixture.BrowserWindows.NewWindowMessageBtn.Click();
+            this.Fixture.BrowserWindows.NewWindowMessageBtn.Click();
 
             ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
             string lastTab = windowHandles[windowHandles.Count - 1];
             driver.SwitchTo().Window(lastTab);
 
-            Assert.Contains("Knowledge increases by sharing but not by saving", this.fixture.BrowserWindows.BodyMessage.Text);
+            Assert.Contains("Knowledge increases by sharing but not by saving", this.Fixture.BrowserWindows.BodyMessage.Text);
         }
     }
 }

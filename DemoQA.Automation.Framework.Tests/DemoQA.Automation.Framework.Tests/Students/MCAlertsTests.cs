@@ -27,17 +27,17 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
         [Fact]
         public void ValidatesThatOkAlertIsDisplayed()
         {
-            this.fixture.Alerts.ConfirmButton.Click();
+            this.Fixture.Alerts.ConfirmButton.Click();
             IAlert alert = driver.SwitchTo().Alert();
             Assert.Equal("Do you confirm action?", alert.Text);
             alert.Accept();
-            Assert.Equal("You selected Ok", this.fixture.Alerts.ConfirmResult.Text);
+            Assert.Equal("You selected Ok", this.Fixture.Alerts.ConfirmResult.Text);
 
-            this.fixture.Alerts.ConfirmButton.Click();
+            this.Fixture.Alerts.ConfirmButton.Click();
             IAlert alert1 = driver.SwitchTo().Alert();
             Assert.Equal("Do you confirm action?", alert1.Text);
             alert1.Dismiss();
-            Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
+            Assert.Equal("You selected Cancel", this.Fixture.Alerts.ConfirmResult.Text);
         }
     }
 }
