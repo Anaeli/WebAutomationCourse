@@ -1,8 +1,8 @@
-﻿using DemoQA.Automation.Framework.Core;
-using OpenQA.Selenium;
-
-namespace DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows
+﻿namespace DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows
 {
+    using DemoQA.Automation.Framework.Core;
+    using OpenQA.Selenium;
+
     public class FramesWrappers
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;

@@ -8,6 +8,7 @@ namespace DemoQA.Automation.Framework.Tests
     public class AutomationTestBase: IClassFixture<AutomationFixture>, IDisposable
     {
         public AutomationFixture fixture { get; private set; }
+
         public IWebDriver driver { get; private set; }
 
         public AutomationClient client { get; private set; }
