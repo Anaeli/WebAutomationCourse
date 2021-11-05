@@ -2,7 +2,6 @@
 using DemoQA.Automation.Framework.Utilities;
 using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.Components;
-using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -27,9 +26,9 @@ namespace DemoQA.Automation.Framework.Tests
             {
                 form.NameTextBox.SetValue(name);
                 form.LastNameTextBox.SetValue(lastName);
-                form.EmailTextBox.SendKeys(email);
+                form.EmailTextBox.SetValue(email);
                 form.SelectGenderRadioButton(gender);
-                form.MobileNumberTextBox.SendKeys(mobileNumber);
+                form.MobileNumberTextBox.SetValue(mobileNumber);
                 form.DateOfBirth.Clear();
                 form.SelectChooseFile();
                 UploadFile.UploadFiles(pictureName);
@@ -72,14 +71,14 @@ namespace DemoQA.Automation.Framework.Tests
             {
                 form.NameTextBox.SetValue(name);
                 form.LastNameTextBox.SetValue(lastName);
-                form.EmailTextBox.SendKeys(email);
+                form.EmailTextBox.SetValue(email);
                 form.SelectGenderRadioButton(gender);
-                form.MobileNumberTextBox.SendKeys(mobileNumber);
+                form.MobileNumberTextBox.SetValue(mobileNumber);
                 form.SubmitButton.ClickUsingJS(client);
 
-                //Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(form.NameTextBox.GetCssValue("border-color")));
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.GetCssValue("border-color")));
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.MobileNumberTextBox.GetCssValue("border-color")));
+                Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(form.NameTextBox.BorderColor));
+                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.BorderColor));
+                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.MobileNumberTextBox.BorderColor));
             });
         }
     }
