@@ -37,7 +37,7 @@
 
         public IWebElement DateOfBirth => driver.FindElement(By.Id("dateOfBirthInput"));
 
-        public IWebElement ChooseFileButton => driver.FindElement(By.Id("uploadPicture"));       
+        public IWebElement ChooseFileButton => driver.FindElement(By.Id("uploadPicture"));
 
         public IWebElement StateDropDown => driver.FindElement(By.Id("state"));
 
@@ -64,6 +64,7 @@
 
         public void SelectChooseFile()
         {
+            AutomationClient.Instance.ScrollIntoView(StateDropDown);
             PerformAction(ChooseFileButton, driver);
         }
 
@@ -82,7 +83,6 @@
                     break;
             }
         }
-
 
         public void SelectState(string state)
         {
@@ -115,7 +115,7 @@
         {
             Actions builder = new Actions(driver);
             builder.Click(element);
-            builder.Build().Perform(); 
-        }       
+            builder.Build().Perform();
+        }
     }
 }

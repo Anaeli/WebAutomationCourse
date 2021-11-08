@@ -2,6 +2,7 @@
 using DemoQA.Automation.Framework.Utilities;
 using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.Components;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -30,11 +31,11 @@ namespace DemoQA.Automation.Framework.Tests
                 form.SelectGenderRadioButton(gender);
                 form.MobileNumberTextBox.SetValue(mobileNumber);
                 form.DateOfBirth.Clear();
+                form.FillDateOfBirth("08 Aug 2021");
                 form.SelectChooseFile();
                 UploadFile.UploadFiles(pictureName);
-                form.FillDateOfBirth("08 Aug 2021");
-                //form.SelectState("NCR");
-                //form.SelectCity("Delhi");
+                form.SelectState("NCR");
+                form.SelectCity("Delhi");
                 form.SubmitButton.ClickUsingJS(client);
             });
 
@@ -44,7 +45,7 @@ namespace DemoQA.Automation.Framework.Tests
             Assert.Contains($"{TableLabels.Mobile} {mobileNumber}", tableInfo);
             Assert.Contains($"{TableLabels.Picture} {pictureName}", tableInfo);
             Assert.Contains($"{TableLabels.DateOfBirth} 08 August,2021", tableInfo);
-            //Assert.Contains($"{TableLabels.StateAndCity} NCR Delhi", tableInfo);
+            Assert.Contains($"{TableLabels.StateAndCity} NCR Delhi", tableInfo);
         }
 
         [Fact]
