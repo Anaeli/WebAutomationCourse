@@ -104,6 +104,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Features\HelloWorld.feature" />
+    <None Include="Features\HelloWorld1.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
