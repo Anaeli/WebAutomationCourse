@@ -3,12 +3,13 @@ using DemoQA.Automation.Framework.Tests.Labels;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests
 {
     public class DynamicPropertiesTests : AutomationTestBase, IClassFixture<AutomationFixture>
     { 
-        public DynamicPropertiesTests(AutomationFixture fixture) : base(fixture)
+        public DynamicPropertiesTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             AutomationClient.Instance.GoToPage("https://demoqa.com/dynamic-properties");
         }

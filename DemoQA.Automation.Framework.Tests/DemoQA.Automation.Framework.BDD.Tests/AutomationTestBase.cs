@@ -4,25 +4,22 @@ using DemoQA.Automation.Framework.Core;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
-using Xunit;
 using Xunit.Abstractions;
 
-namespace DemoQA.Automation.Framework.Tests
+namespace DemoQA.Automation.Framework.BDD.Tests
 {
-    public class AutomationTestBase: IClassFixture<AutomationFixture>, IDisposable
+    public class AutomationTestBase : IDisposable
     {
         private ExtentReports report = TestReport.GetExtent();
         private readonly ITestOutputHelper output;
-        public AutomationFixture fixture { get; private set; }
-
         public IWebDriver driver { get; private set; }
 
         public AutomationClient client { get; private set; }
 
-        public AutomationTestBase(AutomationFixture fixtureI, ITestOutputHelper output)
+        public AutomationTestBase(ITestOutputHelper output)
         {
+
             this.output = output;
-            this.fixture = fixture;
             driver = AutomationClient.Instance.Driver;
             client = AutomationClient.Instance;
         }
@@ -39,6 +36,12 @@ namespace DemoQA.Automation.Framework.Tests
             }
 
             AutomationClient.Instance.QuitDriver();
+        }
+
+        [BeforeScenario(Order = 0)]
+        public void SetTestFailed()
+        {
+            TestCase.SetTestFailed();
         }
     }
 }

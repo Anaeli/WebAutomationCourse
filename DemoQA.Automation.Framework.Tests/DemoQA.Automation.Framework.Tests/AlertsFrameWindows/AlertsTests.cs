@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
 {
@@ -11,7 +12,7 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public AlertsTests(AutomationFixture fixture) : base(fixture)
+        public AlertsTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             AutomationClient.Instance.GoToPage(URLsList.AlertsURL);
         }
