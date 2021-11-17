@@ -9,10 +9,12 @@ namespace DemoQA.Automation.Framework.API.Tests
     public class APITests
     {
         private readonly RestClient client;
+        private User apiUser;
 
         public APITests()
         {
             client = new RestClient("https://demoqa.com");
+            apiUser = new User();
         }
 
         [Fact]
@@ -27,6 +29,9 @@ namespace DemoQA.Automation.Framework.API.Tests
             request.AddJsonBody(user);
             IRestResponse<User> queryResult = client.Execute<User>(request);
             User userResult = queryResult.Data;
+            apiUser.userId = userResult.userId;
+            apiUser.userName = userResult.userName;
+            apiUser.password = user.password;
             Assert.IsType<User>(userResult);
             Assert.Equal(user.userName, userResult.userName);
             Assert.True(queryResult.IsSuccessful);
@@ -52,7 +57,7 @@ namespace DemoQA.Automation.Framework.API.Tests
 
             User user = new User
             {
-                userId = "f38099f8-9dc6-4ab8-b145-d9d2133d8f34",
+                userId = apiUser.userId,
                 collectionOfIsbns = new List<Book>()
                 {
                     book1,
@@ -86,7 +91,7 @@ namespace DemoQA.Automation.Framework.API.Tests
         public void DeleteBook()
         {
             RestClient client = new RestClient("https://demoqa.com");
-            client.Authenticator = new HttpBasicAuthenticator("Eli7", "Control123!!");
+            client.Authenticator = new HttpBasicAuthenticator(apiUser.userName, apiUser.password);
             var request = new RestRequest("/BookStore/v1/Book", Method.DELETE);
             Book book = new Book
             {
@@ -95,7 +100,7 @@ namespace DemoQA.Automation.Framework.API.Tests
 
             User user = new User
             {
-                userId = "d2458ea4-9182-49e2-afa3-95106d414cd7"
+                userId = apiUser.userId
             };
 
             RelationshipBookUser bookUser = new RelationshipBookUser
