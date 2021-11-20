@@ -1,35 +1,30 @@
-﻿using DemoQA.Automation.Framework.Core;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-
-namespace DemoQA.Automation.Framework.Wrappers.Students
+﻿namespace DemoQA.Automation.Framework.Wrappers.Students
 {
-    public class JMPFPracticeTextBoxWrapper
-    {
-        private IWebDriver driver;
+    using DemoQA.Automation.Core.Wrappers;
+    using DemoQA.Automation.Core.Wrappers.Components;
+    using DemoQA.Automation.Framework.Core;
+    using OpenQA.Selenium;
+    using System;
 
-        public JMPFPracticeTextBoxWrapper()
-        {
-            driver = new ChromeDriver();
-        }
+    public class JMPFPracticeTextBoxWrapper 
+    {
+        private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
         public IWebElement FullNameTextBox => driver.FindElement(By.Id("userName"));
 
         public IWebElement EmailTextBox => driver.FindElement(By.Id("userEmail"));
 
-        public void GoToPage()
-        {
-            string appURL = "https://demoqa.com/text-box";
-            driver.Navigate().GoToUrl(appURL);
-        }
+        public IWebElement AddressTextBox => driver.FindElement(By.Id("currentAddress"));
 
-        public void QuitDriver()
-        {
-            Console.Write("Quiting current driver...");
-            driver.Quit();
-            driver.Dispose();
-            driver = null;
-        }
+        public IWebElement PermanentAddressTextBox => driver.FindElement(By.Id("permanentAddress"));
+
+        public IWebElement SubmitButton => driver.FindElement(By.Id("submit"));
+
+        public IWebElement OutputCurrentAddress => driver.FindElement(By.CssSelector("p[id='currentAddress']"));
+
+        public IWebElement OutputPermanentAddress => driver.FindElement(By.CssSelector("p[id='permanentAddress']"));
+
+        public IWebElement EmailLabelTextBox => driver.FindElement(By.CssSelector(".field-error"));
+
     }
 }

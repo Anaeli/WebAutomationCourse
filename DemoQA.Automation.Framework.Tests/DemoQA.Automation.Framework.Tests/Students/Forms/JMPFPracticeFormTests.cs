@@ -2,18 +2,17 @@
 using DemoQA.Automation.Framework.Utilities;
 using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.Components;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using Xunit;
 
-namespace DemoQA.Automation.Framework.Tests
+namespace DemoQA.Automation.Framework.Tests.Students.Forms
 {
-    public class PracticeFormTests : AutomationTestBase
+    public class JMPFPracticeFormTests : AutomationTestBase
     {
         private TableComponentWrapper table;
 
-        public PracticeFormTests(AutomationFixture fixture) : base(fixture)
+        public JMPFPracticeFormTests(AutomationFixture fixture) : base(fixture)
         {
             this.table = new TableComponentWrapper();
             this.client.GoToPage("https://demoqa.com/automation-practice-form");
@@ -56,18 +55,23 @@ namespace DemoQA.Automation.Framework.Tests
             {
                 form.SubmitButton.ClickUsingJS(client);
                 Thread.Sleep(1000);
-                string nameLabelColor = form.NameTextBox.BorderColor;
-                string lastNameLabelColor = form.LastNameTextBox.BorderColor;
-                string maleLabelColor = form.MaleLabelRadioButton.GetCssValue("color");
-
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(nameLabelColor));
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(lastNameLabelColor));
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbaToHex(maleLabelColor));
+                //string nameLabelColor = ColorHelper.ConvertRgbToHex(form.NameTextBox.BorderColor);
+                //string lastNameLabelColor = form.LastNameTextBox.BorderColor;
+                //string maleLabelColor = form.MaleLabelRadioButton.GetCssValue("color");
+                var nameLabelColor = ColorHelper.ConvertRgbToHex(form.NameTextBox.BorderColor);
+                var lastNameLabelColor = ColorHelper.ConvertRgbToHex(form.LastNameTextBox.BorderColor);
+                var maleLabelColor = ColorHelper.ConvertRgbaToHex(form.MaleLabelRadioButton.GetCssValue("color"));
+              
+                Assert.Equal(ColorList.Red.ToUpper(), nameLabelColor);
+                Assert.Equal(ColorList.Red.ToUpper(), lastNameLabelColor);
+                Assert.Equal(ColorList.Red.ToUpper(), maleLabelColor);
             });
         }
 
         [Theory]
         [InlineData("Eliana", "Navia", "user", "Female", "12345678")]
+        [InlineData("Jessica", "Peña", "1", "Female", "hello")]
+        [InlineData("Melisa", "Flores", "testing", "Female", "14*+6")]
         public void ValidateThatARequiredFieldIsMarkedWithRedWhenIncorrectValueIsEntered(string name, string lastName, string email, string gender, string mobileNumber)
         {
             this.client.AutomateActivePage<PracticeFormWrapper>(form =>
@@ -78,10 +82,15 @@ namespace DemoQA.Automation.Framework.Tests
                 form.SelectGenderRadioButton(gender);
                 form.MobileNumberTextBox.SetValue(mobileNumber);
                 form.SubmitButton.ClickUsingJS(client);
+
                 Thread.Sleep(1000);
+
                 Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(form.NameTextBox.BorderColor));
+                Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(form.LastNameTextBox.BorderColor));
+                Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbaToHex(form.FemaleLabelRadioButton.GetCssValue("color")));
                 Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.BorderColor));
                 Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.MobileNumberTextBox.BorderColor));
+                Thread.Sleep(1000);
             });
         }
     }

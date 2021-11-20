@@ -29,6 +29,7 @@
         public IWebElement MaleRadioButton => driver.FindElement(By.Id("gender-radio-1"));
 
         public IWebElement MaleLabelRadioButton => driver.FindElement(By.CssSelector("label[for='gender-radio-1']"));
+        public IWebElement FemaleLabelRadioButton => driver.FindElement(By.CssSelector("label[for='gender-radio-2']"));
         public IWebElement FemaleRadioButton => driver.FindElement(By.Id("gender-radio-2"));
 
         public IWebElement OtherRadioButton => driver.FindElement(By.Id("gender-radio-3"));
