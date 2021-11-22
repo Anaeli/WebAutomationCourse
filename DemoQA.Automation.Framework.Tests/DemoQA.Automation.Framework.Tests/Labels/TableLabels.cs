@@ -51,5 +51,9 @@
         /// State and City label.
         /// </summary>
         public const string StateAndCity = "State and City";
+
+        public const string FirstBook = "Git Pocket Guide";
+        public const string SecondBook = "Learning JavaScript Design Patterns";
+        public const string ThirdBook = "Designing Evolvable Web APIs with ASP.NET";
     }
 }
