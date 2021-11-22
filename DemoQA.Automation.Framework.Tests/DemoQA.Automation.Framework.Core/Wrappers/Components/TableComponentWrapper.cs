@@ -16,7 +16,7 @@ namespace DemoQA.Automation.Core.Wrappers.Components
 		/// </summary>
 		private TableComponentWrapper() 
         {
-			tableContainer = driver.FindElement(By.ClassName("table"));
+			tableContainer = driver.FindElement(By.ClassName("rt-table"));
 		}
 
 		public string GetTableTitle()

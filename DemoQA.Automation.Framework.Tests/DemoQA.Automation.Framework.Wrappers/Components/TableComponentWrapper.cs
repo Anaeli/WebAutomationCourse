@@ -13,9 +13,9 @@
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        private IWebElement tableContainer => this.driver.FindElement(By.ClassName("table"));
+        private IWebElement tableContainer => this.driver.FindElement(By.ClassName("rt-table"));
 
-        private ReadOnlyCollection<IWebElement> TableRows => this.tableContainer.FindElements(By.TagName("tr"));
+        private ReadOnlyCollection<IWebElement> TableRows => this.tableContainer.FindElements(By.TagName("rt-tr"));
 
         /// <summary>
         /// Gets list text of table.
