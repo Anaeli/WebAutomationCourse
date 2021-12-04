@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.props" Condition="Exists('..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.props')" />
   <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.22\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.22\build\SpecFlow.Tools.MsBuild.Generation.props')" />
@@ -145,6 +145,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Students\RGCAlertsTests.cs" />
     <Compile Include="Students\ECRPracticeTextBoxTest.cs" />
+    <Compile Include="Students\JCAlertsTests.cs" />
+    <Compile Include="Students\JCPracticeFormTests.cs" />
+    <Compile Include="Students\JCPracticeTextBoxTest.cs" />
     <Compile Include="Students\RGCPracticeFormTests.cs" />
     <Compile Include="Students\RGCPracticeTextBoxTests.cs" />
   </ItemGroup>
