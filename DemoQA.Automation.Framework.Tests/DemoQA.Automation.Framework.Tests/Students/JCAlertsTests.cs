@@ -5,6 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.Students
 {
@@ -12,7 +13,7 @@ namespace DemoQA.Automation.Framework.Tests.Students
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public JCAlertsTests(AutomationFixture fixture) : base(fixture)
+        public JCAlertsTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             AutomationClient.Instance.GoToPage(URLsList.AlertsURL);
         }

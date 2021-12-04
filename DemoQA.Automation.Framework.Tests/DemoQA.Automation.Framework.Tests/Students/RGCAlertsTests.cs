@@ -1,6 +1,5 @@
 ﻿using DemoQA.Automation.Framework.Core;
 using DemoQA.Automation.Framework.Tests.Client;
-using DemoQA.Automation.Framework.Wrappers;
 using OpenQA.Selenium;
 using Xunit;
 using Xunit.Abstractions;
@@ -11,7 +10,7 @@ namespace DemoQA.Automation.Framework.Tests.Students
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public RGCAlertsTests( AutomationFixture fixture) : base(fixture)
+        public RGCAlertsTests( AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             AutomationClient.Instance.GoToPage(URLsList.AlertsURL);
         }

@@ -5,6 +5,7 @@ using DemoQA.Automation.Framework.Wrappers.Components;
 using System.Collections.Generic;
 using System.Threading;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.Students.Forms
 {
@@ -12,7 +13,7 @@ namespace DemoQA.Automation.Framework.Tests.Students.Forms
     {
         private TableComponentWrapper table;
 
-        public JMPFPracticeFormTests(AutomationFixture fixture) : base(fixture)
+        public JMPFPracticeFormTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             this.table = new TableComponentWrapper();
             this.client.GoToPage("https://demoqa.com/automation-practice-form");

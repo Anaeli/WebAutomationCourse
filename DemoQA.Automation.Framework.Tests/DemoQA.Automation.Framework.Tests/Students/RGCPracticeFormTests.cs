@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.Students
 {
@@ -15,7 +16,7 @@ namespace DemoQA.Automation.Framework.Tests.Students
         private TableComponentWrapper table;
         private RGCPracticeTextBoxWrapper practiceTextBox = new RGCPracticeTextBoxWrapper();
 
-        public RGCPracticeFormTests(AutomationFixture fixture) : base(fixture)
+        public RGCPracticeFormTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             this.table = new TableComponentWrapper();
             this.client.GoToPage("https://demoqa.com/automation-practice-form");

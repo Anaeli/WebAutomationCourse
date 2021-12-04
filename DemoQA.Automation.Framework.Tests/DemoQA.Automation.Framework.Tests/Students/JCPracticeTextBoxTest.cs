@@ -3,7 +3,7 @@ using DemoQA.Automation.Framework.Utilities;
 using DemoQA.Automation.Framework.Wrappers;
 using System.Threading;
 using Xunit;
-
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.Students
 {
@@ -11,7 +11,7 @@ namespace DemoQA.Automation.Framework.Tests.Students
     {
         private JCTextBoxFormWrapper jcPracticeTextBoxWrapper;
 
-        public JCPracticeTextBoxTest(AutomationFixture fixture) : base(fixture)
+        public JCPracticeTextBoxTest(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             this.jcPracticeTextBoxWrapper = new JCTextBoxFormWrapper();
             this.client.GoToPage("https://demoqa.com/text-box");

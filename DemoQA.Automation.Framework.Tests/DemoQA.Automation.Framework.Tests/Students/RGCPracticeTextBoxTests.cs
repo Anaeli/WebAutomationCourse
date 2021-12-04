@@ -2,6 +2,7 @@
 using DemoQA.Automation.Framework.Utilities;
 using DemoQA.Automation.Framework.Wrappers.Students;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.Students
 {
@@ -9,7 +10,7 @@ namespace DemoQA.Automation.Framework.Tests.Students
     {
         private readonly RGCPracticeTextBoxWrapper practiceTextBox;
 
-        public RGCPracticeTextBoxTests(AutomationFixture fixture) : base(fixture)
+        public RGCPracticeTextBoxTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             this.practiceTextBox = new RGCPracticeTextBoxWrapper();
         }
