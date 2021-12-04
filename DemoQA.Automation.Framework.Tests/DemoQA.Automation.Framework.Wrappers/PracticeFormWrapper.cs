@@ -29,6 +29,7 @@
         public IWebElement MaleRadioButton => driver.FindElement(By.Id("gender-radio-1"));
 
         public IWebElement MaleLabelRadioButton => driver.FindElement(By.CssSelector("label[for='gender-radio-1']"));
+        public IWebElement FemaleLabelRadioButton => driver.FindElement(By.CssSelector("label[for='gender-radio-2']"));
         public IWebElement FemaleRadioButton => driver.FindElement(By.Id("gender-radio-2"));
 
         public IWebElement OtherRadioButton => driver.FindElement(By.Id("gender-radio-3"));
@@ -37,7 +38,7 @@
 
         public IWebElement DateOfBirth => driver.FindElement(By.Id("dateOfBirthInput"));
 
-        public IWebElement ChooseFileButton => driver.FindElement(By.Id("uploadPicture"));       
+        public IWebElement ChooseFileButton => driver.FindElement(By.Id("uploadPicture"));
 
         public IWebElement StateDropDown => driver.FindElement(By.Id("state"));
 
@@ -64,6 +65,7 @@
 
         public void SelectChooseFile()
         {
+            AutomationClient.Instance.ScrollIntoView(StateDropDown);
             PerformAction(ChooseFileButton, driver);
         }
 
@@ -82,7 +84,6 @@
                     break;
             }
         }
-
 
         public void SelectState(string state)
         {
@@ -115,7 +116,7 @@
         {
             Actions builder = new Actions(driver);
             builder.Click(element);
-            builder.Build().Perform(); 
-        }       
+            builder.Build().Perform();
+        }
     }
 }

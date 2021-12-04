@@ -1,5 +1,6 @@
 ﻿using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows;
+using DemoQA.Automation.Framework.Wrappers.Students;
 using DemoQA.Automation.Wrappers.Elements;
 using System;
 namespace DemoQA.Automation.Framework.Tests
@@ -14,6 +15,7 @@ namespace DemoQA.Automation.Framework.Tests
 
         public DynamicPropertiesWrapper Dynamic { get; private set; }
 
+        public JMPFPracticeTextBoxWrapper JMPFPracticeTextBoxWrapper { get; private set; }
         public JCTextBoxFormWrapper jcPracticeTextBoxWrapper { get; private set; }
 
         public AutomationFixture()
@@ -22,6 +24,7 @@ namespace DemoQA.Automation.Framework.Tests
             Frames = new FramesWrappers();
             Alerts = new AlertsWrapper();
             Dynamic = new DynamicPropertiesWrapper();
+            JMPFPracticeTextBoxWrapper = new JMPFPracticeTextBoxWrapper();
             jcPracticeTextBoxWrapper = new JCTextBoxFormWrapper();
         }
     }
