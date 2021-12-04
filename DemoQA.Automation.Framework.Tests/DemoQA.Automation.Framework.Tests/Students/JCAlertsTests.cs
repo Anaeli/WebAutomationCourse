@@ -3,16 +3,16 @@ using DemoQA.Automation.Framework.Tests.Client;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Threading;
 using Xunit;
-using Xunit.Abstractions;
 
-namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
+namespace DemoQA.Automation.Framework.Tests.Students
 {
-    public class AlertsTests : AutomationTestBase
+    public class JCAlertsTests : AutomationTestBase
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public AlertsTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
+        public JCAlertsTests(AutomationFixture fixture) : base(fixture)
         {
             AutomationClient.Instance.GoToPage(URLsList.AlertsURL);
         }
@@ -23,22 +23,26 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
             this.fixture.Alerts.AlertButton.Click();
             IAlert alert = driver.SwitchTo().Alert();
             Assert.Equal("You clicked a button", alert.Text);
+            alert.Accept();
         }
 
-        [Fact]
-        public void ValidatesThatOkAlertIsDisplayed()
+        [Theory]
+        [InlineData(false)]
+        public void ValidatesThatOkAlertIsDisplayed(Boolean alertButton)
         {
             this.fixture.Alerts.ConfirmButton.Click();
             IAlert alert = driver.SwitchTo().Alert();
             Assert.Equal("Do you confirm action?", alert.Text);
-            alert.Accept();
-            Assert.Equal("You selected Ok", this.fixture.Alerts.ConfirmResult.Text);
-
-            this.fixture.Alerts.ConfirmButton.Click();
-            IAlert alert1 = driver.SwitchTo().Alert();
-            Assert.Equal("Do you confirm action?", alert1.Text);
-            alert1.Dismiss();
-            Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
+			if (alertButton)
+			{
+                alert.Accept();
+                Assert.Equal("You selected Ok", this.fixture.Alerts.ConfirmResult.Text);
+            }
+			else
+			{
+                alert.Dismiss();
+                Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
+            }
         }
 
         [Theory]
@@ -50,6 +54,7 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
             alert.SendKeys(name);
             alert.Accept();
             Assert.Equal($"You entered {name}", this.fixture.Alerts.PromptResult.Text);
+            Thread.Sleep(2000);
         }
 
         [Fact]
@@ -58,7 +63,7 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
             this.fixture.Alerts.TimerAlertButton.Click();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-            wait.Until(ExpectedConditions.AlertIsPresent());            
+            wait.Until(ExpectedConditions.AlertIsPresent());
             IAlert alert = driver.SwitchTo().Alert();
             Assert.Equal("This alert appeared after 5 seconds", alert.Text);
             alert.Accept();

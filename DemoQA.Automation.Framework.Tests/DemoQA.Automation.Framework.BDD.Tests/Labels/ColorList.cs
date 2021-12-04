@@ -4,7 +4,5 @@
     {
         public const string Red = "#dc3545";
         public const string Green = "#28a745";
-        public const string RedLabel = "#ff00";
-        public const string PureRed = "#ff0000";
     }
 }

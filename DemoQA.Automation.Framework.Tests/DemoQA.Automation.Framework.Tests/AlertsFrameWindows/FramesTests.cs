@@ -1,11 +1,12 @@
 ﻿using OpenQA.Selenium;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
 {
     public class FramesTests: AutomationTestBase
     {
-        public FramesTests(AutomationFixture fixture):base (fixture)
+        public FramesTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             this.client.GoToPage("https://demoqa.com/frames");
         }

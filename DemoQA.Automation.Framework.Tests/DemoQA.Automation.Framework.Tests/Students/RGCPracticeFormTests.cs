@@ -2,26 +2,27 @@
 using DemoQA.Automation.Framework.Utilities;
 using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.Components;
+using DemoQA.Automation.Framework.Wrappers.Students;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using Xunit;
-using Xunit.Abstractions;
 
-namespace DemoQA.Automation.Framework.Tests
+namespace DemoQA.Automation.Framework.Tests.Students
 {
-    public class PracticeFormTests : AutomationTestBase
+    public class RGCPracticeFormTests : AutomationTestBase
     {
         private TableComponentWrapper table;
+        private RGCPracticeTextBoxWrapper practiceTextBox = new RGCPracticeTextBoxWrapper();
 
-        public PracticeFormTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
+        public RGCPracticeFormTests(AutomationFixture fixture) : base(fixture)
         {
             this.table = new TableComponentWrapper();
             this.client.GoToPage("https://demoqa.com/automation-practice-form");
         }
 
         [Theory]
-        [InlineData("Eliana", "Navia", "test@mail.com", "female", "1234567890")]
+        [InlineData("Reynaldo", "Guzman", "test@mail.com", "female", "1234567890")]
         public void ValidatesThatFormIsFillSuccessfuly(string name, string lastName, string email, string gender, string mobileNumber)
         {
             string pictureName = "mando.jpeg";
@@ -33,9 +34,10 @@ namespace DemoQA.Automation.Framework.Tests
                 form.SelectGenderRadioButton(gender);
                 form.MobileNumberTextBox.SetValue(mobileNumber);
                 form.DateOfBirth.Clear();
-                form.FillDateOfBirth("08 Aug 2021");
                 form.SelectChooseFile();
                 UploadFile.UploadFiles(pictureName);
+                form.FillDateOfBirth("08 Aug 2021");
+                practiceTextBox.adsElement.Click();
                 form.SelectState("NCR");
                 form.SelectCity("Delhi");
                 form.SubmitButton.ClickUsingJS(client);
@@ -68,7 +70,9 @@ namespace DemoQA.Automation.Framework.Tests
         }
 
         [Theory]
-        [InlineData("Eliana", "Navia", "user", "Female", "12345678")]
+        [InlineData("", "Guzman", "user", "Male", " ")]
+        [InlineData("", "LastName1", " ", "Male", "strings")]
+        [InlineData("", "LastName2", "!@#$%", "Male", "!@#%$^")]
         public void ValidateThatARequiredFieldIsMarkedWithRedWhenIncorrectValueIsEntered(string name, string lastName, string email, string gender, string mobileNumber)
         {
             this.client.AutomateActivePage<PracticeFormWrapper>(form =>
@@ -80,10 +84,12 @@ namespace DemoQA.Automation.Framework.Tests
                 form.MobileNumberTextBox.SetValue(mobileNumber);
                 form.SubmitButton.ClickUsingJS(client);
                 Thread.Sleep(1000);
-                Assert.Equal(ColorList.Green.ToUpper(), ColorHelper.ConvertRgbToHex(form.NameTextBox.BorderColor));
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.BorderColor));
-                Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.MobileNumberTextBox.BorderColor));
+
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.BorderColor));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.EmailTextBox.BorderColor));
+            Assert.Equal(ColorList.Red.ToUpper(), ColorHelper.ConvertRgbToHex(form.MobileNumberTextBox.BorderColor));
             });
         }
+
     }
 }

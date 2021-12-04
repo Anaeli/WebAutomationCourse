@@ -84,5 +84,19 @@ namespace DemoQA.Automation.Framework.Utilities
 
             return hexStr;
         }
+
+        //Method to make rgb work with css textbox border that's capturing size too
+        public static string ConvertRgbToHexRemovingPxSizes(string rgb)
+        {
+            var matches = Regex.Matches(rgb, @"[^rgb(][0-9]+");
+            StringBuilder hexaString = new StringBuilder("#");
+
+            for (int i = 0; i < matches.Count; i++)
+            {
+                hexaString.Append(DecimalToHexadecimal(int.Parse(matches[i].Value)));
+            }
+
+            return hexaString.ToString();
+        }
     }
 }

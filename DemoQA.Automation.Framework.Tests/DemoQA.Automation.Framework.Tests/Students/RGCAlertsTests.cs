@@ -1,24 +1,23 @@
 ﻿using DemoQA.Automation.Framework.Core;
 using DemoQA.Automation.Framework.Tests.Client;
+using DemoQA.Automation.Framework.Wrappers;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
+namespace DemoQA.Automation.Framework.Tests.Students
 {
-    public class AlertsTests : AutomationTestBase
+    public class RGCAlertsTests: AutomationTestBase
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public AlertsTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
+        public RGCAlertsTests( AutomationFixture fixture) : base(fixture)
         {
             AutomationClient.Instance.GoToPage(URLsList.AlertsURL);
         }
 
         [Fact]
-        public void ValidateThatAlertIsDispalyed()
+        public void ValidateThatAlertIsDisplayed()
         {
             this.fixture.Alerts.AlertButton.Click();
             IAlert alert = driver.SwitchTo().Alert();
@@ -42,7 +41,29 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
         }
 
         [Theory]
-        [InlineData("Eliana")]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ValidatesAlertToReceiveOkOrDismiss(bool confirm)
+        {
+            this.fixture.Alerts.ConfirmButton.Click();
+            IAlert confirmAlert = driver.SwitchTo().Alert();
+            if (confirm == true)
+            {
+                Assert.Equal("Do you confirm action?", confirmAlert.Text);
+                confirmAlert.Accept();
+                Assert.Equal("You selected Ok", this.fixture.Alerts.ConfirmResult.Text);
+            }
+            else
+            {
+                Assert.Equal("Do you confirm action?", confirmAlert.Text);
+                confirmAlert.Dismiss();
+                Assert.Equal("You selected Cancel", this.fixture.Alerts.ConfirmResult.Text);
+            }
+
+        }
+
+        [Theory]
+        [InlineData("Reynaldo")]
         public void ValidatesThatPromptAlertIsDisplayed(string name)
         {
             this.fixture.Alerts.PromptButton.Click();
@@ -50,18 +71,6 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
             alert.SendKeys(name);
             alert.Accept();
             Assert.Equal($"You entered {name}", this.fixture.Alerts.PromptResult.Text);
-        }
-
-        [Fact]
-        public void ValidatesThatTimerAlertButtonAlertIsDisplayed()
-        {
-            this.fixture.Alerts.TimerAlertButton.Click();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-
-            wait.Until(ExpectedConditions.AlertIsPresent());            
-            IAlert alert = driver.SwitchTo().Alert();
-            Assert.Equal("This alert appeared after 5 seconds", alert.Text);
-            alert.Accept();
         }
     }
 }
