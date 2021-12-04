@@ -1,13 +1,14 @@
 ﻿using DemoQA.Automation.Framework.Tests.Client;
 using System.Collections.ObjectModel;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
 {
     public class BrowserWindowsTests: AutomationTestBase
     {
        
-        public BrowserWindowsTests(AutomationFixture fixture) : base(fixture)
+        public BrowserWindowsTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             this.client.GoToPage(URLsList.BrowserWindowsURL);
         }

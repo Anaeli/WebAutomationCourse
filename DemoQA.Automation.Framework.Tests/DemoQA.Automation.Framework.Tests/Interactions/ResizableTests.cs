@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.Interactions
 {
     public class ResizableTests : AutomationTestBase
     {
-        public ResizableTests(AutomationFixture fixture) : base(fixture)
+        public ResizableTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             AutomationClient.Instance.GoToPage("https://demoqa.com/resizable");
         }
