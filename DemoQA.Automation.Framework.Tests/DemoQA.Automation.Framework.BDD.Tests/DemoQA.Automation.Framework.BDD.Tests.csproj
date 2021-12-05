@@ -138,6 +138,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="BookStore\JCABookStoreWorkflowTest.feature" />
+    <None Include="BookStore\JCATestCase1.feature" />
+    <None Include="BookStore\JCATestCase2.feature" />
+    <None Include="BookStore\JCATestCase3.feature" />
+    <None Include="BookStore\JCATestCase4.feature" />
     <None Include="Features\Forms\PracticeFormFeature.feature" />
     <None Include="Features\HelloWorld.feature" />
     <None Include="Features\HelloWorld1.feature" />

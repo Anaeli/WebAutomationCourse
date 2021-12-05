@@ -1,6 +1,7 @@
 ﻿using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows;
 using DemoQA.Automation.Framework.Wrappers.Students;
+using DemoQA.Automation.Framework.Wrappers.BookStore;
 using DemoQA.Automation.Wrappers.Elements;
 using System;
 namespace DemoQA.Automation.Framework.Tests
@@ -18,6 +19,8 @@ namespace DemoQA.Automation.Framework.Tests
         public JMPFPracticeTextBoxWrapper JMPFPracticeTextBoxWrapper { get; private set; }
         public JCTextBoxFormWrapper jcPracticeTextBoxWrapper { get; private set; }
 
+        public JCABookStoreApplicationWrapper jcaBookStoreApplicationWrapper { get; private set; }
+
         public AutomationFixture()
         {
             BrowserWindows = new BrowserWindowsWrapper();
@@ -26,6 +29,7 @@ namespace DemoQA.Automation.Framework.Tests
             Dynamic = new DynamicPropertiesWrapper();
             JMPFPracticeTextBoxWrapper = new JMPFPracticeTextBoxWrapper();
             jcPracticeTextBoxWrapper = new JCTextBoxFormWrapper();
+            jcaBookStoreApplicationWrapper = new JCABookStoreApplicationWrapper();
         }
     }
 }
