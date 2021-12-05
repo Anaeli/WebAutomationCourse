@@ -75,6 +75,9 @@
     <Reference Include="RazorEngine, Version=3.9.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.13.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.13.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.Internal.Json.1.0.8\lib\net45\SpecFlow.Internal.Json.dll</HintPath>
     </Reference>
@@ -89,6 +92,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
@@ -135,6 +139,11 @@
     <Compile Include="AlertsFrameWindows\FramesTests.cs" />
     <Compile Include="AutomationFixture.cs" />
     <Compile Include="AutomationTestBase.cs" />
+    <Compile Include="BookStore\JCABookStoreWorkflowTest.cs" />
+    <Compile Include="BookStore\JCATestCase1.cs" />
+    <Compile Include="BookStore\JCATestCase2.cs" />
+    <Compile Include="BookStore\JCATestCase3.cs" />
+    <Compile Include="BookStore\JCATestCase4.cs" />
     <Compile Include="Client\URLsList.cs" />
     <Compile Include="Elements\DynamicPropertiesTests.cs" />
     <Compile Include="Interactions\DroppableTests.cs" />
@@ -158,6 +167,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\DemoQA.Automation.Framework.API.Tests\DemoQA.Automation.Framework.API.Tests.csproj">
+      <Project>{DB12FDC3-2E7C-4531-ACAC-86660ECF667B}</Project>
+      <Name>DemoQA.Automation.Framework.API.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoQA.Automation.Framework.Core\DemoQA.Automation.Framework.Core.csproj">
       <Project>{082c1333-07e2-436d-8c94-036ae841922e}</Project>
       <Name>DemoQA.Automation.Framework.Core</Name>
@@ -192,7 +205,6 @@
     <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.props'))" />
     <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.targets'))" />
     <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.props'))" />
@@ -202,12 +214,13 @@
     <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.22\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.22\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.props'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.96.0.4664.4500\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.96.0.4664.4500\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.94.0.4606.4101\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.16.11.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.16.11.0\build\net45\Microsoft.NET.Test.Sdk.targets')" />
   <Import Project="..\packages\SpecFlow.3.9.22\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.9.22\build\SpecFlow.targets')" />
   <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.22\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.22\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
   <Import Project="..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.targets" Condition="Exists('..\packages\SpecFlow.xUnit.3.9.22\build\SpecFlow.xUnit.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.96.0.4664.4500\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.96.0.4664.4500\build\Selenium.WebDriver.ChromeDriver.targets')" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using DemoQA.Automation.Framework.Wrappers;
 using DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows;
+using DemoQA.Automation.Framework.Wrappers.BookStore;
 using DemoQA.Automation.Wrappers.Elements;
 using System;
 namespace DemoQA.Automation.Framework.Tests
@@ -14,12 +15,15 @@ namespace DemoQA.Automation.Framework.Tests
 
         public DynamicPropertiesWrapper Dynamic { get; private set; }
 
+        public JCABookStoreApplicationWrapper jcaBookStoreApplicationWrapper { get; private set; }
+
         public AutomationFixture()
         {
             BrowserWindows = new BrowserWindowsWrapper();
             Frames = new FramesWrappers();
             Alerts = new AlertsWrapper();
             Dynamic = new DynamicPropertiesWrapper();
+            jcaBookStoreApplicationWrapper = new JCABookStoreApplicationWrapper();
         }
     }
 }
