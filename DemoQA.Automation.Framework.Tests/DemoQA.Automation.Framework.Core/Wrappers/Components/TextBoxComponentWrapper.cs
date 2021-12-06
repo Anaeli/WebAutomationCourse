@@ -1,7 +1,6 @@
 ﻿using DemoQA.Automation.Core.Extensions;
 using DemoQA.Automation.Framework.Core;
 using OpenQA.Selenium;
-using System;
 using System.Linq;
 
 namespace DemoQA.Automation.Core.Wrappers.Components
@@ -24,11 +23,6 @@ namespace DemoQA.Automation.Core.Wrappers.Components
             : base(context, container, client)
         {
             this.textBox = container;
-        }
-
-        public void SendKeys(string name)
-        {
-            throw new NotImplementedException();
         }
 
         public void Click()

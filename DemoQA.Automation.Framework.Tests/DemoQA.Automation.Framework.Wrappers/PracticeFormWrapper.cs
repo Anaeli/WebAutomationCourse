@@ -20,7 +20,7 @@
         public TextBoxComponentWrapper NameTextBox { get; set; }
         //public TextBoxComponentWrapper NameTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("firstName");
 
-        // public IWebElement NameTextBox => driver.FindElement(By.Id("firstName"));
+        //public IWebElement NameTextBox => driver.FindElement(By.Id("firstName"));
 
         public TextBoxComponentWrapper LastNameTextBox => this.WaitForWrapper<TextBoxComponentWrapper>("lastName");
 
@@ -47,8 +47,6 @@
         public IWebElement CityDropDown => driver.FindElement(By.Id("city"));
 
         public ButtonComponentWrapper SubmitButton => this.WaitForWrapper<ButtonComponentWrapper>("submit");
-
-        public IWebElement SubmitButton1 => driver.FindElement(By.Id("submit"));
 
         private void SelectStateByName(string state)
         {
@@ -92,12 +90,6 @@
             PerformAction(StateDropDown, driver);
             SelectStateByName(state);
 
-        }
-
-        public void ClickSubmitButton()
-        {
-            AutomationClient.Instance.ScrollIntoView(SubmitButton1);
-            ClickUsingJS(SubmitButton1);
         }
 
         public void ClickUsingJS(IWebElement element)

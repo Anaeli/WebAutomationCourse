@@ -3,15 +3,17 @@ using DemoQA.Automation.Framework.Tests.Client;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Threading;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
 {
     public class AlertsTests : AutomationTestBase
     {
-        private readonly IWebDriver driver = AutomationClient.Instance.Driver;
+       // private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        public AlertsTests(AutomationFixture fixture) : base(fixture)
+        public AlertsTests(AutomationFixture fixture, ITestOutputHelper output) : base(fixture, output)
         {
             AutomationClient.Instance.GoToPage(URLsList.AlertsURL);
         }
@@ -20,6 +22,7 @@ namespace DemoQA.Automation.Framework.Tests.AlertsFrameWindows
         public void ValidateThatAlertIsDispalyed()
         {
             this.fixture.Alerts.AlertButton.Click();
+            Thread.Sleep(5000);
             IAlert alert = driver.SwitchTo().Alert();
             Assert.Equal("You clicked a button", alert.Text);
         }

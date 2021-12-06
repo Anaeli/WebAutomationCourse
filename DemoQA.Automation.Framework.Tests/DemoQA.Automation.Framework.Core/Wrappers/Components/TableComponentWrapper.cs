@@ -14,7 +14,7 @@ namespace DemoQA.Automation.Core.Wrappers.Components
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TableComponentWrapper"/> class.
 		/// </summary>
-		public TableComponentWrapper() 
+		private TableComponentWrapper() 
         {
 			tableContainer = driver.FindElement(By.ClassName("table"));
 		}

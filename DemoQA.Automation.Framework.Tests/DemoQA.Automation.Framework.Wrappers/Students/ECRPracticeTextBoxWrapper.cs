@@ -12,11 +12,8 @@ namespace DemoQA.Automation.Framework.Wrappers.Students
             driver = new ChromeDriver();
         }
         public IWebElement FullNameTextBox => driver.FindElement(By.Id("userName"));
+
         public IWebElement EmailTextBox => driver.FindElement(By.Id("userEmail"));
-        public IWebElement CurrentAddressTextBox => driver.FindElement(By.Id("currentAddress"));
-        public IWebElement PermanentAddressTextBox => driver.FindElement(By.Id("permanentAddress"));
-        public IWebElement SubmitButton => driver.FindElement(By.Id("submit"));
-        public IWebElement OutputTextBox => driver.FindElement(By.Id("output"));
 
         public void GoToPage()
         {

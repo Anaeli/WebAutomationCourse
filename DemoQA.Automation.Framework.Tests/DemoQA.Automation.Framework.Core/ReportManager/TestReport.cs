@@ -100,7 +100,7 @@
             string path = $"{reportPath}\\{todayTime}";
             if (!Directory.Exists(reportPath))
             {
-                Directory.CreateDirectory(reportPath);
+                //Directory.CreateDirectory(reportPath);
             }
 
             Tuple<string, string> values = new Tuple<string, string>(path, reportFile);
