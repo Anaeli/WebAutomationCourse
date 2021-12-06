@@ -95,7 +95,8 @@
             DateTime time = DateTime.Now;
             string todayDate = $"{time.ToString("yyyy-MM-dd")}";
             string todayTime = $"{time.ToString("HH-mm-ss")}";
-            string reportPath = $"E:\\Report\\{todayDate}";
+            //Changed E: to F: beacause there is no E: drive in my PC
+            string reportPath = $"F:\\Report\\{todayDate}";
             string reportFile = $"{reportPath}\\Report.html";
             string path = $"{reportPath}\\{todayTime}";
             if (!Directory.Exists(reportPath))

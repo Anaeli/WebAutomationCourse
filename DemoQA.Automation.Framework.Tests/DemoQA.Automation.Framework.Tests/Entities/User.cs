@@ -1,7 +1,7 @@
 ﻿using RestSharp;
 using System.Collections.Generic;
 
-namespace DemoQA.Automation.Framework.API.Tests
+namespace DemoQA.Automation.Framework.Tests
 {
     public class User
     {

@@ -74,6 +74,9 @@
     <Reference Include="RazorEngine, Version=3.9.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.13.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.13.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.Internal.Json.1.0.8\lib\net45\SpecFlow.Internal.Json.dll</HintPath>
     </Reference>
@@ -88,6 +91,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
@@ -130,6 +134,7 @@
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Labels\ColorList.cs" />
     <Compile Include="Labels\TableLabels.cs" />
+    <Compile Include="MCBookStore\BookStoreLoginTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepsDefinitions\Common\CommonSteps.cs" />
     <Compile Include="StepsDefinitions\Forms\PracticeFormSteps.cs" />
@@ -142,9 +147,17 @@
     <None Include="Features\HelloWorld.feature" />
     <None Include="Features\HelloWorld1.feature" />
     <None Include="license" />
+    <None Include="MCBookStore\BDD Test Cases\TC1.feature" />
+    <None Include="MCBookStore\BDD Test Cases\TC2.feature" />
+    <None Include="MCBookStore\BDD Test Cases\TC3.feature" />
+    <None Include="MCBookStore\BDD Test Cases\TC4.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoQA.Automation.Framework.API.Tests\DemoQA.Automation.Framework.API.Tests.csproj">
+      <Project>{DB12FDC3-2E7C-4531-ACAC-86660ECF667B}</Project>
+      <Name>DemoQA.Automation.Framework.API.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoQA.Automation.Framework.Core\DemoQA.Automation.Framework.Core.csproj">
       <Project>{082C1333-07E2-436D-8C94-036AE841922E}</Project>
       <Name>DemoQA.Automation.Framework.Core</Name>
