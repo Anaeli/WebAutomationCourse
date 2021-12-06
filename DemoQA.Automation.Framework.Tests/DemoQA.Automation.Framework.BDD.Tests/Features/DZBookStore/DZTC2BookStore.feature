@@ -1,7 +1,6 @@
 ﻿Feature: DZTC2BookStore
 	Adding Seven books to the user collection and changing the number of rows.
 
-@DZ TC2
 Scenario: Add Seven books to the user collection
 	Given I send a POST request to <https://demoqa.com/Account/v1/User> with body
 		"""
@@ -10,7 +9,7 @@ Scenario: Add Seven books to the user collection
 			"password": "Control123!"
 		}
 		"""
-		And I send a POST request to <https://demoqa.com/BookStore/v1/Books> with body
+	And I send a POST request to <https://demoqa.com/BookStore/v1/Books> with body
 			"""
 			{
 				"userId": "UserID",
@@ -26,12 +25,12 @@ Scenario: Add Seven books to the user collection
 				]
 			}
 			"""
-		And I navigate to <https://demoqa.com/login> url
-		And I login with the following credentials
+	And I go to <https://demoqa.com/login> url
+	And I login with the following credentials
 			| Field    | Value       |
 			| UserName | Dan         |
 			| Password | Control123! |
-		And I go to https://demoqa.com/profile> url
+	And I go to https://demoqa.com/profile> url
 	Then I should see the following number of rows displayed in the "Book Collection" grid
 		| Field | Value |
 		| Rows  | 5     |
@@ -48,6 +47,6 @@ Scenario: Add Seven books to the user collection
 		| Field | Value |
 		| Rows  | 7     |
 Scenario: Deleting the user created on this TC via UI
-	And I go to <https://demoqa.com/profile> url
+	Then I go to <https://demoqa.com/profile> url
 	And I click "Delete Account" button
 	And I Click on the "Accept" Button inside the Alert Dialog

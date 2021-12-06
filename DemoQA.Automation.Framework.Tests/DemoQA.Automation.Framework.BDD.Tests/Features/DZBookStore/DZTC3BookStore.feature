@@ -1,7 +1,6 @@
-﻿Feature: DZTC2BookStore
+﻿Feature: DZTC3BookStore
 	Adding Seven books to the user collection and I search one of them.
 
-@DZ TC3
 Scenario: Add Seven books to the user collection and I search one of them
 	Given I send a POST request to <https://demoqa.com/Account/v1/User> with body
 		"""
@@ -26,12 +25,12 @@ Scenario: Add Seven books to the user collection and I search one of them
 				]
 			}
 			"""
-	And I navigate to <https://demoqa.com/login> url
+	And I go to <https://demoqa.com/login> url
 	And I login with the following credentials
 			| Field    | Value       |
 			| UserName | Dan         |
 			| Password | Control123! |
-	And I navigate to https://demoqa.com/profile> url
+	And I go to https://demoqa.com/profile> url
 		And I populate the the search box in the "Book Collection" table with the following information
 			| Field      | Value |
 			| Search Box | git   |
@@ -41,6 +40,6 @@ Scenario: Add Seven books to the user collection and I search one of them
 		| Author      | Richard E. Silverman |
 		| Publisher   | O'Reilly Media       |
 Scenario: Deleting the user created on this TC via UI
-		And I navigate to <https://demoqa.com/profile> url
-		And I click "Delete Account" button
-		And I Click on the "Accept" Button inside the Alert Dialog
+	Then I go to <https://demoqa.com/profile> url
+	And I click "Delete Account" button
+	And I Click on the "Accept" Button inside the Alert Dialog
