@@ -50,6 +50,7 @@
     <Compile Include="AlertsFrameWindows\AlertsWrapper.cs" />
     <Compile Include="AlertsFrameWindows\BrowserWindowsWrapper.cs" />
     <Compile Include="AlertsFrameWindows\FramesWrappers.cs" />
+    <Compile Include="BookStore\RTBookStoreApplicationWrapper.cs" />
     <Compile Include="Components\TableComponentWrapper.cs" />
     <Compile Include="Elements\DynamicPropertiesWrapper.cs" />
     <Compile Include="PracticeFormWrapper.cs" />
@@ -61,6 +62,8 @@
     <None Include="Students\AlertsFrameWindows\README.md" />
     <None Include="Students\Forms\README.md" />
     <None Include="Students\README.md" />
+    <None Include="stylecop.json" />
+    <None Include="stylecop1.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DemoQA.Automation.Framework.Core\DemoQA.Automation.Framework.Core.csproj">

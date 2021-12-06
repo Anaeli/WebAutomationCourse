@@ -36,7 +36,7 @@ namespace DemoQA.Automation.Framework.Tests.Interactions
                 //    .Build()
                 //    .Perform();
 
-                Assert.Equal("Dropped", dropTo.Text);
+                Assert.Equal("Dropped!", dropTo.Text);
                 TestCase.SetTestPassed();
             }
             catch(Exception e)
