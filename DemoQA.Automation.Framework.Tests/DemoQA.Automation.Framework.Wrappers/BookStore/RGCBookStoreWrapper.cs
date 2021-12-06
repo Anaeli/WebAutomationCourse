@@ -37,7 +37,7 @@
         public IWebElement AddBookToCollectionButton => this.driver.FindElement(By.XPath("//button[contains(text(), 'Add To Your Collection')]"));
 
         public IWebElement GotoNewBookStoreButton => this.driver.FindElement(By.XPath("//button[contains(text(), 'Back To Book Store')]"));
-        
+
         public IWebElement GotoBookStoreButton => this.driver.FindElement(By.XPath("//button[contains(text(), 'Go To Book Store')]"));
 
         public IWebElement DeleteGitPocketGuideButton => this.driver.FindElement(By.XPath("//span[@id='see-book-Git Pocket Guide']//parent::div//parent::div//following-sibling::div[3]/div/span"));

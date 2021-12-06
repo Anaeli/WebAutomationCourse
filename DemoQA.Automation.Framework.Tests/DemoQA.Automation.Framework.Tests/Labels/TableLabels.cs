@@ -53,7 +53,10 @@
         public const string StateAndCity = "State and City";
 
         public const string FirstBook = "Git Pocket Guide";
+<<<<<<< HEAD
         public const string SecondBook = "Learning JavaScript Design Patterns";
         public const string ThirdBook = "Designing Evolvable Web APIs with ASP.NET";
+=======
+>>>>>>> 9ded2933f769187198336147cdb5b7efec703af4
     }
 }
