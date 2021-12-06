@@ -9,14 +9,14 @@
     /// <summary>
     /// Table Component wrapper.
     /// </summary>
-    public class TableComponentWrapper
+    public class BookTableComponentWrapper
     {
         private readonly IWebDriver driver = AutomationClient.Instance.Driver;
 
-        private IWebElement tableContainer => this.driver.FindElement(By.ClassName("table-responsive"));
+        private IWebElement tableContainer => this.driver.FindElement(By.ClassName("rt-table"));
 
-        private ReadOnlyCollection<IWebElement> TableRows => this.tableContainer.FindElements(By.TagName("rt-tr"));
-        //private ReadOnlyCollection<IWebElement> TableRows => this.driver.FindElements(By.TagName("rt-td"));
+        private ReadOnlyCollection<IWebElement> TableRows => this.tableContainer.FindElements(By.TagName("rt-td"));
+        
         /// <summary>
         /// Gets list text of table.
         /// </summary>

@@ -11,7 +11,7 @@ namespace DemoQA.Automation.Framework.Tests
 {
     public class AutomationTestBase: IClassFixture<AutomationFixture>, IDisposable
     {
-        private ExtentReports report = TestReport.GetExtent();
+        //private ExtentReports report = TestReport.GetExtent();
         private readonly ITestOutputHelper output;
         public AutomationFixture fixture { get; private set; }
 
@@ -29,7 +29,7 @@ namespace DemoQA.Automation.Framework.Tests
 
         public void Dispose()
         {
-            if (TestCase.Status == TestCaseStatus.Failed.ToString())
+          /*  if (TestCase.Status == TestCaseStatus.Failed.ToString())
             {
                 TestReport.TakeScreenshot(this.output, AutomationClient.Instance);
             }
@@ -37,7 +37,7 @@ namespace DemoQA.Automation.Framework.Tests
             {
                 TestReport.SetTestPass("Test Case Passed!", this.output);
             }
-
+          */
             AutomationClient.Instance.QuitDriver();
         }
     }
