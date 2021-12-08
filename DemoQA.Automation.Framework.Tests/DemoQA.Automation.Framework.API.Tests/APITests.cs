@@ -22,7 +22,7 @@ namespace DemoQA.Automation.Framework.API.Tests
         {            
             User user = new User
             {
-                userName = "Eli7",
+                userName = "RCPQA",
                 password = "Control123!!"
             };
             RestRequest request = new RestRequest("/Account/v1/User", Method.POST);

@@ -141,6 +141,11 @@
     <None Include="Features\Forms\PracticeFormFeature.feature" />
     <None Include="Features\HelloWorld.feature" />
     <None Include="Features\HelloWorld1.feature" />
+    <None Include="RCPBookStore\RCPBookStore.feature" />
+    <None Include="RCPBookStore\TC4.feature" />
+    <None Include="RCPBookStore\TC3.feature" />
+    <None Include="RCPBookStore\TC2.feature" />
+    <None Include="RCPBookStore\TC1.feature" />
     <None Include="license" />
     <None Include="packages.config" />
   </ItemGroup>
