@@ -1,0 +1,31 @@
+﻿using DemoQA.Automation.Framework.Wrappers;
+using DemoQA.Automation.Framework.Wrappers.AlertsFrameWindows;
+using DemoQA.Automation.Framework.Wrappers.Students;
+using DemoQA.Automation.Wrappers.Elements;
+using System;
+namespace DemoQA.Automation.Framework.Tests
+{
+    public class AutomationFixture
+    {
+        public BrowserWindowsWrapper BrowserWindows { get; private set; }
+
+        public FramesWrappers Frames { get; private set; }
+
+        public AlertsWrapper Alerts { get; private set; }
+
+        public DynamicPropertiesWrapper Dynamic { get; private set; }
+
+        public JMPFPracticeTextBoxWrapper JMPFPracticeTextBoxWrapper { get; private set; }
+        public JCTextBoxFormWrapper jcPracticeTextBoxWrapper { get; private set; }
+
+        public AutomationFixture()
+        {
+            BrowserWindows = new BrowserWindowsWrapper();
+            Frames = new FramesWrappers();
+            Alerts = new AlertsWrapper();
+            Dynamic = new DynamicPropertiesWrapper();
+            JMPFPracticeTextBoxWrapper = new JMPFPracticeTextBoxWrapper();
+            jcPracticeTextBoxWrapper = new JCTextBoxFormWrapper();
+        }
+    }
+}
