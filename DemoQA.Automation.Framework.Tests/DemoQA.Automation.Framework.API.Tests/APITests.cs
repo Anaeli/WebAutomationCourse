@@ -1,7 +1,10 @@
 ﻿using DemoQA.Automation.Framework.API.Tests.Entities;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using RestSharp;
 using RestSharp.Authenticators;
 using System.Collections.Generic;
+using System.Threading;
 using Xunit;
 
 namespace DemoQA.Automation.Framework.API.Tests
@@ -10,6 +13,7 @@ namespace DemoQA.Automation.Framework.API.Tests
     {
         private readonly RestClient client;
         private User apiUser;
+        private IWebDriver driver;
 
         public APITests()
         {
@@ -18,25 +22,45 @@ namespace DemoQA.Automation.Framework.API.Tests
         }
 
         [Fact]
-        public void PostUser()
+        public void TC4()
         {            
             User user = new User
             {
-                userName = "Eli7",
+                userName = "HarryTest",
                 password = "Control123!!"
             };
             RestRequest request = new RestRequest("/Account/v1/User", Method.POST);
             request.AddJsonBody(user);
             IRestResponse<User> queryResult = client.Execute<User>(request);
-            User userResult = queryResult.Data;
+            RestRequest requestLogin = new RestRequest("/login", Method.POST);
+            IRestResponse<User> queryResultLogin = client.Execute<User>(request);
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://demoqa.com/login");
+            /*User userResult = queryResult.Data;
             apiUser.userId = userResult.userId;
             apiUser.userName = userResult.userName;
             apiUser.password = user.password;
             Assert.IsType<User>(userResult);
             Assert.Equal(user.userName, userResult.userName);
-            Assert.True(queryResult.IsSuccessful);
-            Assert.Equal("Created", queryResult.StatusCode.ToString());
-            Assert.Equal("Completed", queryResult.ResponseStatus.ToString());
+            Assert.True(queryResult.IsSuccessful);*/
+            driver.FindElement(By.Id("userName")).SendKeys(user.userName);
+            driver.FindElement(By.Id("password")).SendKeys(user.password);
+            driver.FindElement(By.Id("login")).Click();
+            Thread.Sleep(3000);
+            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div[2]/div[1]/div[3]/div[2]/button")).Click();
+            Thread.Sleep(1000);
+            driver.FindElement(By.Id("closeSmallModal-ok")).Click();
+            Thread.Sleep(1000);
+            driver.SwitchTo().Alert().Accept();
+            Thread.Sleep(2000);
+            driver.FindElement(By.Id("userName")).SendKeys(user.userName);
+            driver.FindElement(By.Id("password")).SendKeys(user.password);
+            driver.FindElement(By.Id("login")).Click();
+            Thread.Sleep(3000);
+            driver.Close();
+            /* Assert.Equal("Created", queryResult.StatusCode.ToString());
+             Assert.Equal("Completed", queryResult.ResponseStatus.ToString());*/
+
         }
 
         [Fact]

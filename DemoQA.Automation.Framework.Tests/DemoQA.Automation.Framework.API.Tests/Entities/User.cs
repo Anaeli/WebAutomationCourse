@@ -8,7 +8,6 @@ namespace DemoQA.Automation.Framework.API.Tests
         public string userName { get; set; }
         public string password { get; set; }
         public List<Book> books { get; set; }
-
         public List<Book> collectionOfIsbns { get; set; }
     }
 }

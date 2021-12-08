@@ -51,5 +51,10 @@
         /// State and City label.
         /// </summary>
         public const string StateAndCity = "State and City";
+
+        /// <summary>
+        /// FirstBook.
+        /// </summary>
+        public const string FirstBook = "Git Pocket Guide";
     }
 }
