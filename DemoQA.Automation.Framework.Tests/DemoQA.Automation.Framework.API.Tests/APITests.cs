@@ -22,8 +22,8 @@ namespace DemoQA.Automation.Framework.API.Tests
         {            
             User user = new User
             {
-                userName = "Eli7",
-                password = "Control123!!"
+                userName = "fsivila",
+                password = "Control123!"
             };
             RestRequest request = new RestRequest("/Account/v1/User", Method.POST);
             request.AddJsonBody(user);
@@ -42,7 +42,7 @@ namespace DemoQA.Automation.Framework.API.Tests
         [Fact]
         public void PostBooks()
         {
-            client.Authenticator = new HttpBasicAuthenticator("Eli7", "Control123!!");
+            client.Authenticator = new HttpBasicAuthenticator("fsivila", "Control123!");
             var request = new RestRequest("/BookStore/v1/Books", Method.POST);
 
             Book book1 = new Book
@@ -58,6 +58,7 @@ namespace DemoQA.Automation.Framework.API.Tests
             User user = new User
             {
                 userId = apiUser.userId,
+
                 collectionOfIsbns = new List<Book>()
                 {
                     book1,

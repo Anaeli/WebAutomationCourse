@@ -138,6 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Features\BookStore\TestCase1.feature" />
+    <None Include="Features\BookStore\TestCase2.feature" />
+    <None Include="Features\BookStore\TestCase3.feature" />
+    <None Include="Features\BookStore\TestCase4.feature" />
     <None Include="Features\Forms\PracticeFormFeature.feature" />
     <None Include="Features\HelloWorld.feature" />
     <None Include="Features\HelloWorld1.feature" />

@@ -50,6 +50,7 @@
     <Compile Include="AlertsFrameWindows\AlertsWrapper.cs" />
     <Compile Include="AlertsFrameWindows\BrowserWindowsWrapper.cs" />
     <Compile Include="AlertsFrameWindows\FramesWrappers.cs" />
+    <Compile Include="BookStore\BookStore.cs" />
     <Compile Include="Components\TableComponentWrapper.cs" />
     <Compile Include="Elements\DynamicPropertiesWrapper.cs" />
     <Compile Include="PracticeFormWrapper.cs" />
