@@ -139,6 +139,8 @@
     <Compile Include="Elements\DynamicPropertiesTests.cs" />
     <Compile Include="Interactions\DroppableTests.cs" />
     <Compile Include="Interactions\ResizableTests.cs" />
+    <Compile Include="JMPFBookStore\JMPFBookStoreWorkFlowTest.cs" />
+    <Compile Include="Labels\BookStoreTableLabel.cs" />
     <Compile Include="Labels\ColorList.cs" />
     <Compile Include="Labels\TableLabels.cs" />
     <Compile Include="PracticeFormTests.cs" />
@@ -158,6 +160,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\DemoQA.Automation.Framework.API.Tests\DemoQA.Automation.Framework.API.Tests.csproj">
+      <Project>{db12fdc3-2e7c-4531-acac-86660ecf667b}</Project>
+      <Name>DemoQA.Automation.Framework.API.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoQA.Automation.Framework.Core\DemoQA.Automation.Framework.Core.csproj">
       <Project>{082c1333-07e2-436d-8c94-036ae841922e}</Project>
       <Name>DemoQA.Automation.Framework.Core</Name>
